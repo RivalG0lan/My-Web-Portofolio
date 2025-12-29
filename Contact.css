@@ -1,3 +1,243 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
+/* reset base  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f6f7f8;
+  color: #0d141b;
+  line-height: 1.6;
+}
+
+/* navbar  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 80px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.nav-kiri p {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.nav-kanan {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-kanan p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-kanan p:hover {
+  color: #137fec;
+}
+
+/* layout utama  */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+}
+
+/* konten kiri  */
+.mainkiri > p:first-child {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #137fec;
+}
+
+.mainkiri h1 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 12px 0 18px;
+}
+
+.mainkiri > p:nth-of-type(2) {
+  font-size: 17px;
+  color: #475569;
+  max-width: 520px;
+}
+
+/* listing kontak nya  */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+/* card kontak gw  */
+.contact-info > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-info > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* gaya/style icon nya  */
+.contact-info img {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-email,
+.icon-linkedln,
+.icon-github,
+.icon-instagram,
+.icon-Location {
+  width: 48px;
+  height: 48px;
+  background-color: #eaf3ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* text areanya  */
+.text-email p:first-child,
+.text-linkedln p:first-child,
+.text-github p:first-child,
+.text-instagram p:first-child,
+.text-Location p:first-child {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.text-email p:last-child,
+.text-linkedln p:last-child,
+.text-github p:last-child,
+.text-instagram p:last-child,
+.text-Location p:last-child {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* new tab icon nya nanti */
+.newtab-email,
+.newtab-linkedln,
+.newtab-github,
+.newtab-instagram {
+  margin-left: auto;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.newtab-email:hover,
+.newtab-linkedln:hover,
+.newtab-github:hover,
+.newtab-instagram:hover {
+  opacity: 1;
+}
+
+/* form kanan */
+.mainkanan {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  background-color: #f8fafc;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #137fec;
+  box-shadow: 0 0 0 3px rgba(19, 127, 236, 0.15);
+}
+
+/* tombol */
+button {
+  margin-top: 10px;
+  height: 46px;
+  border-radius: 12px;
+  border: none;
+  background-color: #137fec;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: #0f6fd1;
+  box-shadow: 0 10px 24px rgba(19, 127, 236, 0.4);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* responsive desainya */
+@media (max-width: 900px) {
+  nav {
+    padding: 16px 24px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    padding: 50px 24px;
+  }
+
+  .mainkiri h1 {
+    font-size: 34px;
+  }
 }

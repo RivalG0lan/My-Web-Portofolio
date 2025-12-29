@@ -1,3 +1,159 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
+/* reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f6f7f8;
+  color: #0d141b;
+  line-height: 1.6;
+}
+
+/* navbar  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 80px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.nav-kiri p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.nav-kanan {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-kanan p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-kanan p:hover {
+  color: #137fec;
+}
+
+/* header utama  */
+main {
+  padding: 60px 80px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+main h1 {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -0.03em;
+}
+
+main > p {
+  max-width: 760px;
+  margin: 16px auto 50px;
+  text-align: center;
+  font-size: 16px;
+  color: #475569;
+}
+
+/* grid skill  */
+.skill-cardlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* kartu skill  */
+.skill-cardlist > div {
+  background-color: #ffffff;
+  border: 1px solid #cfdbe7;
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.skill-cardlist > div:hover {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+}
+
+/* ikon  */
+.icon-skill {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: #eaf3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-skill img {
+  width: 30px;
+  height: 30px;
+}
+
+/* judul dan deskripsi kecilnya  */
+.title-littleDesc h3 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.title-littleDesc p {
+  font-size: 14px;
+  color: #475569;
+  margin-top: 4px;
+}
+
+/* pembagi skill listing */
+.list-skill1,
+.list-skill2,
+.list-skill3 {
+  padding-top: 14px;
+  border-top: 1px solid #edf2f7;
+}
+
+/* list konten  */
+.list-skill1 h4,
+.list-skill2 h4,
+.list-skill3 h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d141b;
+}
+
+.list-skill1 p,
+.list-skill2 p,
+.list-skill3 p {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* responsiv */
+@media (max-width: 900px) {
+  nav {
+    padding: 16px 24px;
+  }
+
+  main {
+    padding: 40px 24px;
+  }
+
+  main h1 {
+    font-size: 32px;
+  }
 }

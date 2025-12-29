@@ -1,0 +1,138 @@
+/* buat reset/base dasar nya  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f6f7f8;
+  color: #0d141b;
+  line-height: 1.6;
+}
+
+/* navbar  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.nav-kiri p {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav-kanan {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-kanan p {
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #4c739a;
+}
+
+.nav-kanan p:hover {
+  color: #137fec;
+}
+
+/* header utama  */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+main > p {
+  color: #4c739a;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+/* grid projeknya */
+.project-cardlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* kartu projek  */
+.project-cardlist > div {
+  background-color: #ffffff;
+  border: 1px solid #e7edf3;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-cardlist > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(13, 20, 27, 0.12);
+}
+
+/* konten */
+.project-cardlist video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #000;
+  border-bottom: 1px solid #e7edf3;
+}
+
+/* card konten  */
+.project-cardlist h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 16px 16px 8px;
+}
+
+.project-cardlist p {
+  font-size: 0.9rem;
+  color: #4c739a;
+  margin: 0 16px 12px;
+}
+
+/* link penghubung  */
+.project-cardlist a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #137fec;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin: 8px 16px 20px;
+}
+
+.project-cardlist a:hover {
+  text-decoration: underline;
+}
+
+/* responsifitas */
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 20px;
+  }
+
+  main h1 {
+    font-size: 2rem;
+  }
+
+  main > p {
+    font-size: 1rem;
+  }
+}

@@ -1,3 +1,186 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
+/* global,reset,style nya */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f6f7f8;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+/* navbar nya */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 80px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: rgba(246, 247, 248, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.nav-kanan {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-kiri p {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav-kanan p {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #334155;
+  transition: color 0.2s ease;
+}
+
+.bagian.kanan p:hover {
+  color: #137fec;
+}
+
+/* layout main/utama */
+main {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px;
+  gap: 60px;
+}
+
+/* konten kiri */
+.mainkiri {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.mainkiriAtas h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.mainkiriAtas p {
+  max-width: 560px;
+  font-size: 18px;
+  color: #475569;
+}
+
+/* skill chip listnye */
+.mainkiri-list-skill-icon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mainkiri-list-skill-icon div {
+  background-color: #e5e7eb;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0f172a;
+  transition: transform 0.2s ease;
+}
+
+.mainkiri-list-skill-icon div:hover {
+  transform: scale(1.05);
+}
+
+/* tombol */
+.mainkiributton {
+  display: flex;
+  gap: 16px;
+}
+
+.mainkiributton button {
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* primer */
+.mainkiributton button:first-child {
+  background-color: #137fec;
+  color: white;
+  border: none;
+  box-shadow: 0 10px 25px rgba(19, 127, 236, 0.35);
+}
+
+.mainkiributton button:first-child:hover {
+  background-color: #0f6bd1;
+}
+
+/* sekunder */
+.mainkiributton button:last-child {
+  background-color: white;
+  color: #0f172a;
+  border: 1px solid #e5e7eb;
+}
+
+.mainkiributton button:last-child:hover {
+  background-color: #f1f5f9;
+}
+
+/* konten kanan */
+.mainkanan {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainkanan video {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+  background-color: #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* footer */
+footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* responsivitas */
+@media (max-width: 900px) {
+  nav {
+    padding: 16px 24px;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 60px 24px;
+  }
+
+  .mainkiriAtas h1 {
+    font-size: 40px;
+  }
+
+  .mainkanan {
+    width: 100%;
+  }
 }
