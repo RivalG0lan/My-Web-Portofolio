@@ -107,7 +107,9 @@ main > p {
 .project-cardlist p {
   font-size: 0.9rem;
   color: #4c739a;
-  margin: 0 16px 12px;
+  margin: 0px 16px 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #4c739a;
 }
 
 /* link penghubung  */
@@ -119,7 +121,7 @@ main > p {
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
-  margin: 8px 16px 20px;
+  margin: 8px 18px 20px;
 }
 
 .project-cardlist a:hover {
