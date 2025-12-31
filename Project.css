@@ -22,6 +22,10 @@ nav {
   border-bottom: 1px solid #e7edf3;
 }
 
+nav span {
+  color: #137fec;
+}
+
 .nav-kiri p {
   font-weight: 700;
   font-size: 1.1rem;

@@ -19,8 +19,12 @@ nav {
   align-items: center;
   padding: 18px 80px;
   border-bottom: 1px solid #e5e7eb;
-  background-color: rgba(246, 247, 248, 0.9);
+  background-color: #ffffff;
   backdrop-filter: blur(8px);
+}
+
+nav span {
+  color: #137fec;
 }
 
 .nav-kanan {
