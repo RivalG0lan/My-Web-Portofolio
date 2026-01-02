@@ -68,6 +68,12 @@ main {
   gap: 36px;
 }
 
+.mainkiriAtas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .mainkiriAtas h1 {
   font-size: 52px;
   font-weight: 900;
