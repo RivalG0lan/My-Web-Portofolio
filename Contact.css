@@ -14,12 +14,19 @@ body {
 
 /* navbar  */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 80px;
   background-color: #ffffff;
   border-bottom: 1px solid #e7edf3;
+
+  z-index: 1000;
 }
 
 nav span {
@@ -52,16 +59,19 @@ nav span {
 main {
   max-width: 1200px;
   margin: auto;
-  padding: 70px 80px;
+
+  padding: 140px 80px 70px; 
+  
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 64px;
-  align-items: start; /* ⬅️ INI KUNCINYA */
+  align-items: start;
 }
 
 
+
 /* konten kiri  */
-.mainkiri > p:first-child {
+.mainkiri>p:first-child {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 800;
@@ -76,7 +86,7 @@ main {
   margin: 12px 0 18px;
 }
 
-.mainkiri > p:nth-of-type(2) {
+.mainkiri>p:nth-of-type(2) {
   font-size: 17px;
   color: #475569;
   max-width: 520px;
@@ -91,7 +101,7 @@ main {
 }
 
 /* card kontak gw  */
-.contact-info > div {
+.contact-info>div {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -102,7 +112,7 @@ main {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.contact-info > div:hover {
+.contact-info>div:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
 }
@@ -111,7 +121,7 @@ main {
 .contact-info span {
   width: 24px;
   height: 24px;
-  
+
 }
 
 .material-symbols-outlined {
@@ -124,6 +134,7 @@ main {
 .icon-linkedln,
 .icon-github,
 .icon-instagram,
+.icon-youtube,
 .icon-Location {
   width: 48px;
   height: 48px;
@@ -140,6 +151,7 @@ main {
 .text-linkedln p:first-child,
 .text-github p:first-child,
 .text-instagram p:first-child,
+.text-youtube p:first-child,
 .text-Location p:first-child {
   font-size: 14px;
   font-weight: 700;
@@ -149,6 +161,7 @@ main {
 .text-linkedln p:last-child,
 .text-github p:last-child,
 .text-instagram p:last-child,
+.text-youtube p:last-child,
 .text-Location p:last-child {
   font-size: 13px;
   color: #64748b;
@@ -158,6 +171,7 @@ main {
 .newtab-email,
 .newtab-linkedln,
 .newtab-github,
+.newtab-youtube,
 .newtab-instagram {
   margin-left: auto;
   opacity: 0.6;
