@@ -69,6 +69,7 @@ main {
   max-width: 420px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 80%;
   border-radius: 16px;
   background-color: #e5e7eb;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
@@ -150,12 +151,18 @@ main {
   gap: 14px;
 }
 
+
+
 .main2-list-skill div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #e7edf3;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   color: #0d141b;
   transition: transform 0.2s ease;

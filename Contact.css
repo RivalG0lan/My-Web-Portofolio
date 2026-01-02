@@ -108,11 +108,17 @@ main {
 }
 
 /* gaya/style icon nya  */
-.contact-info img {
+.contact-info span {
   width: 24px;
   height: 24px;
   
 }
+
+.material-symbols-outlined {
+  font-size: 22px;
+  color: #137fec;
+}
+
 
 .icon-email,
 .icon-linkedln,
