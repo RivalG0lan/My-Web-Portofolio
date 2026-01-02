@@ -37,9 +37,11 @@ nav span {
 }
 
 .nav-kanan p {
-  font-size: 0.9rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
   cursor: pointer;
-  color: #4c739a;
+  transition: color 0.2s ease;
 }
 
 .nav-kanan p:hover {
