@@ -152,21 +152,21 @@ main {
 }
 
 
-
 .main2-list-skill div {
+  width: 260px; 
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #e7edf3;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #0d141b;
   transition: transform 0.2s ease;
 }
+
 
 .main2-list-skill div:hover {
   transform: translateY(-4px);
