@@ -164,6 +164,7 @@ main {
   background-color: #e5e7eb;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
 }
 
 .mainkanan iframe {
@@ -173,6 +174,7 @@ main {
   background-color: #e5e7eb;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
 }
 
 .video-wrapper {
