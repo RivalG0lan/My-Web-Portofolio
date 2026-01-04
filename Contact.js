@@ -1,6 +1,6 @@
 // init EmailJS
 (function () {
-  emailjs.init("ljvafDc51_oOyjf91"); // PUBLIC KEY
+  emailjs.init("ljvafDc51_oOyjf91"); // publik key gw
 })();
 
 // submit handler
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // ✅ VALIDASI
+    // validasi
     if (
       !form.name.value.trim() ||
       !form.email.value.trim() ||
@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // ✅ KIRIM EMAIL
+    //kirim email
     emailjs
       .sendForm(
-        "service_71yica1",   // Service ID
-        "template_3w0sswd",  // Template ID
+        "service_71yica1",   // service id dan templet id nya
+        "template_3w0sswd",  
         form
       )
       .then(
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           form.reset();
         },
         function (error) {
-          alert("Failed to send message 😥");
+          alert("Failed to send message !! Please try again later.");
           console.error("EmailJS Error:", error);
         }
       );
