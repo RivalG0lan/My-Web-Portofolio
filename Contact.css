@@ -136,6 +136,7 @@ main {
 .icon-github,
 .icon-instagram,
 .icon-youtube,
+.icon-tiktok,
 .icon-Location {
   width: 48px;
   height: 48px;
@@ -147,12 +148,19 @@ main {
   flex-shrink: 0;
 }
 
+.icon-tiktok i {
+  font-size: 22px;
+  color: #137fec; /* atau hitam biar mirip brand */
+}
+
+
 /* text areanya  */
 .text-email p:first-child,
 .text-linkedln p:first-child,
 .text-github p:first-child,
 .text-instagram p:first-child,
 .text-youtube p:first-child,
+.text-tiktok p:first-child,
 .text-Location p:first-child {
   font-size: 14px;
   font-weight: 700;
@@ -163,6 +171,7 @@ main {
 .text-github p:last-child,
 .text-instagram p:last-child,
 .text-youtube p:last-child,
+.text-tiktok p:last-child,
 .text-Location p:last-child {
   font-size: 13px;
   color: #64748b;
@@ -173,6 +182,7 @@ main {
 .newtab-linkedln,
 .newtab-github,
 .newtab-youtube,
+.newtab-tiktok,
 .newtab-instagram {
   margin-left: auto;
   opacity: 0.6;
