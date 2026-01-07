@@ -126,7 +126,7 @@ main {
   transition: all 0.25s ease;
 }
 
-/* primer */
+/* primer
 .mainkiributton button:first-child {
   background-color: #137fec;
   color: white;
@@ -138,7 +138,7 @@ main {
   background-color: #0f6bd1;
 }
 
-/* sekunder */
+sekunder 
 .mainkiributton button:last-child {
   background-color: white;
   color: #0f172a;
@@ -147,7 +147,30 @@ main {
 
 .mainkiributton button:last-child:hover {
   background-color: #f1f5f9;
+} 
+*/
+
+.btn-primary {
+  background-color: #137fec;
+  color: white;
+  border: none;
+  box-shadow: 0 10px 25px rgba(19, 127, 236, 0.35);
 }
+
+.btn-primary:hover {
+  background-color: #0f6bd1;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #0f172a;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+}
+
 
 /* konten kanan */
 .mainkanan {

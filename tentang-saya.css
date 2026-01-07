@@ -115,28 +115,52 @@ main {
   transition: all 0.25s ease;
 }
 
+
 /* primary */
-.button-main1-kanan button:first-child {
+.btn-primary {
   background-color: #137fec;
   color: #ffffff;
   border: none;
   box-shadow: 0 10px 25px rgba(19, 127, 236, 0.35);
 }
 
-.button-main1-kanan button:first-child:hover {
+.btn-primary:hover {
   background-color: #0f6bd1;
 }
 
 /* secondary */
-.button-main1-kanan button:last-child {
+.btn-secondary {
   background-color: #ffffff;
   color: #0d141b;
   border: 1px solid #e5e7eb;
 }
 
-.button-main1-kanan button:last-child:hover {
+.btn-secondary:hover {
   background-color: #f1f5f9;
 }
+
+/* primary */
+/* .button-main1-kanan button:first-child {
+  background-color: #137fec;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 25px rgba(19, 127, 236, 0.35);
+} */
+
+/* .button-main1-kanan button:first-child:hover {
+  background-color: #0f6bd1;
+} */
+
+/* secondary */
+/* .button-main1-kanan button:last-child {
+  background-color: #ffffff;
+  color: #0d141b;
+  border: 1px solid #e5e7eb;
+} */
+
+/* .button-main1-kanan button:last-child:hover {
+  background-color: #f1f5f9;
+} */
 
 /* section 2 skill  */
 .main2 h2 {
