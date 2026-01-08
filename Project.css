@@ -126,18 +126,26 @@ main > p {
   margin: 8px 18px 20px;
 }
 
-iframe {
+/* iframe {
+  display: block;
   width: 100%;
-  max-width: 720px;
   aspect-ratio: 16 / 9;
   background-color: #e5e7eb;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  /* pointer-events: none; */
   pointer-events: auto;
   height: 100%;
   border: none;
+} */
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
 }
+
+
 
 
 .project-cardlist a:hover {
