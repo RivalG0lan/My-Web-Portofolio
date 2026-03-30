@@ -166,3 +166,19 @@ iframe {
     font-size: 1rem;
   }
 }
+
+.Pcard10 img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.Pcard11 img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #e7edf3;
+}
