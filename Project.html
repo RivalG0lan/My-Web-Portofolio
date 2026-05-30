@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="Project.css" />
     <link rel="icon" type="image/png" href="assets/img/Logo-Icon-Website.png" />
   </head>
+
+  <div id="imageModal" class="image-modal">
+    <img id="modalImg" src="" alt="Preview Image" />
+  </div>
+
   <body>
     <nav>
       <div class="nav-kiri">
@@ -476,5 +481,29 @@
         </div>
       </div>
     </main>
+    <script>
+      const images = document.querySelectorAll(".project-cardlist img");
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+
+      images.forEach((img) => {
+        img.addEventListener("click", () => {
+          modal.style.display = "flex";
+          modalImg.src = img.src;
+        });
+      });
+
+      // klik area gelap untuk menutup
+      modal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // tombol ESC juga menutup
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          modal.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>
