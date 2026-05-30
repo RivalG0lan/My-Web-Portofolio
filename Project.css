@@ -182,3 +182,15 @@ iframe {
   display: block;
   border-bottom: 1px solid #e7edf3;
 }
+
+.project-cardlist p {
+  font-size: 0.9rem;
+  color: #4c739a;
+  margin: 0px 16px 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #4c739a;
+
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
