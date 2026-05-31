@@ -60,8 +60,8 @@ main {
   max-width: 1200px;
   margin: auto;
 
-  padding: 140px 80px 70px; 
-  
+  padding: 140px 80px 70px;
+
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 64px;
@@ -90,6 +90,12 @@ main {
   font-size: 17px;
   color: #475569;
   max-width: 520px;
+}
+
+.contact-description {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* listing kontak nya  */
@@ -150,7 +156,8 @@ main {
 
 .icon-tiktok i {
   font-size: 22px;
-  color: #137fec; /* atau hitam biar mirip brand */
+  color: #137fec;
+  /* atau hitam biar mirip brand */
 }
 
 
