@@ -88,6 +88,12 @@ main {
   letter-spacing: -0.03em;
 }
 
+.main1-kanan p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .main1-kanan p:first-of-type {
   font-size: 16px;
   color: #475569;
@@ -177,7 +183,7 @@ main {
 
 
 .main2-list-skill div {
-  width: 260px; 
+  width: 260px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -209,21 +215,38 @@ main {
   letter-spacing: -0.02em;
 }
 
-.main3 > p {
-  max-width: 640px;
+.main3>p {
+  max-width: 100%;
   font-size: 16px;
   color: #475569;
+
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* kartu service nya */
 .Wicd {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 20px;
 }
 
-.Wicd > div {
+@media (max-width: 900px) {
+  .Wicd {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Wicd {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Wicd>div {
+  height: 100%;
   background-color: #ffffff;
   border: 1px solid #cfdbe7;
   border-radius: 16px;
@@ -234,7 +257,7 @@ main {
   transition: border-color 0.2s ease;
 }
 
-.Wicd > div:hover {
+.Wicd>div:hover {
   border-color: rgba(19, 127, 236, 0.5);
 }
 
@@ -246,6 +269,10 @@ main {
 .Wicd p {
   font-size: 14px;
   color: #475569;
+
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* responsifiy */
