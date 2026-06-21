@@ -98,13 +98,14 @@
 </html> -->
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rivaldo Nainggolan — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="assets/img/Logo-Icon-Website.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -119,28 +120,91 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <style>
-      /* ─── TOKENS ─── */
+      /* ═══════════════════════════════════════════
+       TOKENS — LIGHT (default)
+    ═══════════════════════════════════════════ */
       :root {
         --blue: #137fec;
         --blue-dim: #0f6bd1;
-        --blue-muted: rgba(19, 127, 236, 0.12);
-        --dark: #070d1a;
-        --dark2: #0e1629;
-        --slate: #1e2d45;
+
+        /* NAV */
+        --nav-bg: rgba(255, 255, 255, 0.92);
+        --nav-logo: #0a1628;
+        --nav-link: #475569;
+        --nav-link-hover: #0a1628;
+        --nav-border: rgba(0, 0, 0, 0.07);
+
+        /* HERO — always dark */
+        --hero-bg: #0d1b35;
+        --hero-bg2: #112040;
+
+        /* BODY / GENERAL */
         --body-bg: #f4f7fb;
         --card-bg: #ffffff;
         --text-1: #0a1628;
         --text-2: #475569;
         --text-3: #64748b;
         --border: #e2e8f0;
+
+        /* SKILLS SECTION */
+        --skills-bg: #f4f7fb;
+        --skill-icon-bg: #eaf3ff;
+
+        /* PROJECTS SECTION */
+        --projects-bg: #ffffff;
+        --project-card-bg: #f4f7fb;
+
+        /* ABOUT — always dark */
+        --about-bg: #0e1629;
+
+        /* CONTACT — always dark */
+        --contact-bg: #070d1a;
+
+        /* FOOTER — always dark */
+        --footer-bg: #070d1a;
+        --footer-border: rgba(255, 255, 255, 0.06);
+        --footer-text: rgba(255, 255, 255, 0.3);
+
+        /* MISC */
         --radius-sm: 10px;
         --radius-md: 16px;
         --radius-lg: 22px;
         --shadow-card: 0 4px 24px rgba(10, 22, 40, 0.08);
         --shadow-hover: 0 16px 48px rgba(10, 22, 40, 0.14);
+        --scrollbar-track: #dde4ef;
       }
 
-      /* ─── RESET ─── */
+      /* ═══════════════════════════════════════════
+       TOKENS — DARK OVERRIDE
+    ═══════════════════════════════════════════ */
+      [data-theme="dark"] {
+        --nav-bg: rgba(7, 13, 26, 0.88);
+        --nav-logo: #ffffff;
+        --nav-link: rgba(255, 255, 255, 0.6);
+        --nav-link-hover: #ffffff;
+        --nav-border: rgba(255, 255, 255, 0.07);
+
+        --body-bg: #0b1120;
+        --card-bg: #111d34;
+        --text-1: #e4eaf5;
+        --text-2: #8fa3bf;
+        --text-3: #5c7494;
+        --border: #1c2d47;
+
+        --skills-bg: #0b1120;
+        --skill-icon-bg: rgba(19, 127, 236, 0.15);
+
+        --projects-bg: #0e1629;
+        --project-card-bg: #0b1120;
+
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+        --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.55);
+        --scrollbar-track: #070d1a;
+      }
+
+      /* ═══════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════ */
       *,
       *::before,
       *::after {
@@ -157,6 +221,9 @@
         color: var(--text-1);
         line-height: 1.65;
         overflow-x: hidden;
+        transition:
+          background 0.3s,
+          color 0.3s;
       }
       a {
         text-decoration: none;
@@ -172,19 +239,20 @@
         cursor: pointer;
       }
 
-      /* ─── SCROLLBAR ─── */
       ::-webkit-scrollbar {
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: var(--dark);
+        background: var(--scrollbar-track);
       }
       ::-webkit-scrollbar-thumb {
         background: var(--blue);
         border-radius: 3px;
       }
 
-      /* ─── NAV ─── */
+      /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
       nav {
         position: fixed;
         top: 0;
@@ -196,17 +264,20 @@
         align-items: center;
         padding: 0 80px;
         height: 64px;
-        background: rgba(7, 13, 26, 0.82);
+        background: var(--nav-bg);
         backdrop-filter: blur(14px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        transition: background 0.3s;
+        border-bottom: 1px solid var(--nav-border);
+        transition:
+          background 0.3s,
+          border-color 0.3s;
       }
       .nav-logo {
         font-family: "Space Grotesk", sans-serif;
         font-weight: 700;
         font-size: 17px;
         letter-spacing: -0.02em;
-        color: #fff;
+        color: var(--nav-logo);
+        transition: color 0.3s;
       }
       .nav-logo span {
         color: var(--blue);
@@ -215,11 +286,12 @@
         display: flex;
         gap: 36px;
         list-style: none;
+        align-items: center;
       }
       .nav-links a {
         font-size: 13.5px;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.65);
+        color: var(--nav-link);
         letter-spacing: 0.01em;
         transition: color 0.2s;
         position: relative;
@@ -236,30 +308,73 @@
         transition: width 0.25s ease;
       }
       .nav-links a:hover {
-        color: #fff;
+        color: var(--nav-link-hover);
       }
       .nav-links a:hover::after {
         width: 100%;
       }
       .nav-links a.active {
-        color: #fff;
+        color: var(--nav-link-hover);
       }
       .nav-links a.active::after {
         width: 100%;
       }
 
-      /* ─── HERO ─── */
+      /* ─── THEME TOGGLE BUTTON ─── */
+      .theme-toggle {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid var(--nav-border);
+        background: transparent;
+        color: var(--nav-link);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s;
+        flex-shrink: 0;
+        margin-left: 8px;
+      }
+      .theme-toggle:hover {
+        background: rgba(19, 127, 236, 0.1);
+        border-color: var(--blue);
+        color: var(--blue);
+        transform: rotate(20deg);
+      }
+      .theme-toggle .icon-sun,
+      .theme-toggle .icon-moon {
+        font-size: 18px;
+      }
+      /* light mode → show moon (to switch to dark) */
+      [data-theme="light"] .icon-moon {
+        display: block;
+      }
+      [data-theme="light"] .icon-sun {
+        display: none;
+      }
+      /* dark mode → show sun (to switch to light) */
+      [data-theme="dark"] .icon-sun {
+        display: block;
+      }
+      [data-theme="dark"] .icon-moon {
+        display: none;
+      }
+
+      /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
       #home {
         min-height: 100vh;
-        background: var(--dark);
+        background: var(--hero-bg);
         display: flex;
         align-items: center;
         padding: 100px 80px 80px;
         gap: 64px;
         position: relative;
         overflow: hidden;
+        transition: background 0.3s;
       }
-      /* subtle grid overlay */
       #home::before {
         content: "";
         position: absolute;
@@ -270,7 +385,6 @@
         background-size: 52px 52px;
         pointer-events: none;
       }
-      /* blue glow blob */
       #home::after {
         content: "";
         position: absolute;
@@ -339,7 +453,7 @@
       }
       .skill-chips span {
         background: rgba(19, 127, 236, 0.12);
-        border: 1px solid rgba(19, 127, 236, 0.25);
+        border: 1px solid rgba(19, 127, 236, 0.28);
         color: rgba(255, 255, 255, 0.8);
         font-size: 11.5px;
         font-weight: 600;
@@ -350,7 +464,7 @@
         transition: all 0.2s;
       }
       .skill-chips span:hover {
-        background: rgba(19, 127, 236, 0.25);
+        background: rgba(19, 127, 236, 0.28);
         border-color: var(--blue);
         color: #fff;
       }
@@ -383,11 +497,11 @@
         font-weight: 700;
         background: transparent;
         color: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         transition: all 0.25s;
       }
       .btn-secondary:hover {
-        border-color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.55);
         color: #fff;
         transform: translateY(-2px);
       }
@@ -409,20 +523,18 @@
         box-shadow:
           0 32px 80px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(19, 127, 236, 0.15);
-        position: relative;
       }
-      .hero-video-wrapper video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      .hero-video-wrapper video,
       .hero-video-wrapper iframe {
         width: 100%;
         height: 100%;
         border: none;
+        object-fit: cover;
       }
 
-      /* ─── SECTION SHARED ─── */
+      /* ═══════════════════════════════════════════
+       SECTION SHARED
+    ═══════════════════════════════════════════ */
       section {
         padding: 96px 80px;
       }
@@ -461,10 +573,13 @@
         line-height: 1.75;
       }
 
-      /* ─── ABOUT ─── */
+      /* ═══════════════════════════════════════════
+       ABOUT (always dark bg)
+    ═══════════════════════════════════════════ */
       #about {
-        background: var(--dark2);
+        background: var(--about-bg);
         color: #fff;
+        transition: background 0.3s;
       }
       .about-grid {
         display: grid;
@@ -532,12 +647,15 @@
       .about-btns {
         display: flex;
         gap: 14px;
-        margin-top: 8px;
+        margin-top: 28px;
       }
 
-      /* ─── SKILLS ─── */
+      /* ═══════════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════════ */
       #skills {
-        background: var(--body-bg);
+        background: var(--skills-bg);
+        transition: background 0.3s;
       }
       .skills-header {
         margin-bottom: 52px;
@@ -558,7 +676,9 @@
         transition:
           transform 0.25s ease,
           box-shadow 0.25s ease,
-          border-color 0.25s ease;
+          border-color 0.25s ease,
+          background 0.3s,
+          border-color 0.3s;
       }
       .skill-card:hover {
         transform: translateY(-6px);
@@ -569,11 +689,12 @@
         width: 52px;
         height: 52px;
         border-radius: 14px;
-        background: #eaf3ff;
+        background: var(--skill-icon-bg);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        transition: background 0.3s;
       }
       .skill-icon img {
         width: 28px;
@@ -596,7 +717,8 @@
       }
       .skill-item {
         padding-top: 14px;
-        border-top: 1px solid #edf2f7;
+        border-top: 1px solid var(--border);
+        transition: border-color 0.3s;
       }
       .skill-item h4 {
         font-size: 13px;
@@ -609,9 +731,12 @@
         margin-top: 3px;
       }
 
-      /* ─── PROJECTS ─── */
+      /* ═══════════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════════ */
       #projects {
-        background: #fff;
+        background: var(--projects-bg);
+        transition: background 0.3s;
       }
       .projects-header {
         margin-bottom: 52px;
@@ -622,7 +747,7 @@
         gap: 24px;
       }
       .project-card {
-        background: var(--body-bg);
+        background: var(--project-card-bg);
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
         overflow: hidden;
@@ -630,7 +755,9 @@
         flex-direction: column;
         transition:
           transform 0.25s ease,
-          box-shadow 0.25s ease;
+          box-shadow 0.25s ease,
+          background 0.3s,
+          border-color 0.3s;
       }
       .project-card:hover {
         transform: translateY(-6px);
@@ -669,6 +796,7 @@
         font-family: "Space Grotesk", sans-serif;
         font-size: 15.5px;
         font-weight: 700;
+        color: var(--text-1);
       }
       .project-body p {
         font-size: 13px;
@@ -693,10 +821,13 @@
         gap: 10px;
       }
 
-      /* ─── CONTACT ─── */
+      /* ═══════════════════════════════════════════
+       CONTACT (always dark bg)
+    ═══════════════════════════════════════════ */
       #contact {
-        background: var(--dark);
+        background: var(--contact-bg);
         color: #fff;
+        transition: background 0.3s;
       }
       #contact .section-title {
         color: #fff;
@@ -768,7 +899,6 @@
         color: #fff;
       }
 
-      /* Contact Form */
       .contact-form-wrap {
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -843,17 +973,22 @@
         transform: scale(0.98);
       }
 
-      /* ─── FOOTER ─── */
+      /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
       footer {
-        background: var(--dark);
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        background: var(--footer-bg);
+        border-top: 1px solid var(--footer-border);
         text-align: center;
         padding: 24px 80px;
         font-size: 13px;
-        color: rgba(255, 255, 255, 0.3);
+        color: var(--footer-text);
+        transition: background 0.3s;
       }
 
-      /* ─── IMAGE MODAL ─── */
+      /* ═══════════════════════════════════════════
+       IMAGE MODAL
+    ═══════════════════════════════════════════ */
       .img-modal {
         display: none;
         position: fixed;
@@ -876,7 +1011,9 @@
         animation: zoomIn 0.25s ease;
       }
 
-      /* ─── SCROLL REVEAL ─── */
+      /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
       .reveal {
         opacity: 0;
         transform: translateY(28px);
@@ -889,7 +1026,9 @@
         transform: none;
       }
 
-      /* ─── ANIMATIONS ─── */
+      /* ═══════════════════════════════════════════
+       KEYFRAMES
+    ═══════════════════════════════════════════ */
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -907,7 +1046,9 @@
         }
       }
 
-      /* ─── RESPONSIVE ─── */
+      /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
       @media (max-width: 1024px) {
         nav {
           padding: 0 40px;
@@ -937,7 +1078,7 @@
           padding: 0 20px;
         }
         .nav-links {
-          gap: 20px;
+          gap: 16px;
         }
         .nav-links a {
           font-size: 12px;
@@ -974,7 +1115,10 @@
       }
       @media (max-width: 520px) {
         .nav-links {
-          gap: 14px;
+          gap: 10px;
+        }
+        .nav-links a {
+          font-size: 11px;
         }
         .project-grid {
           grid-template-columns: 1fr;
@@ -1002,6 +1146,16 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+          >
+            <span class="material-symbols-outlined icon-moon">dark_mode</span>
+            <span class="material-symbols-outlined icon-sun">light_mode</span>
+          </button>
+        </li>
       </ul>
     </nav>
 
@@ -1016,8 +1170,8 @@
           <span class="stroke-text">Rivaldo</span> Nainggolan
         </h1>
         <p class="hero-desc">
-          Junior IT Support & Frontend Developer based in Medan. Building clean
-          interfaces, data-driven systems, and interactive experiences.
+          Junior IT Support &amp; Frontend Developer based in Medan. Building
+          clean interfaces, data-driven systems, and interactive experiences.
         </p>
         <div class="skill-chips">
           <span>Microsoft Office</span>
@@ -1096,10 +1250,9 @@
           <p>
             Skilled in VS Code, Microsoft Office Suite, Adobe Premiere Pro,
             After Effects, Photoshop, Figma, Canva, Unity, Jupyter Notebook,
-            Google Colab, and more. Available for remote and hybrid
-            arrangements.
+            Google Colab, and more.
           </p>
-          <div class="about-btns" style="margin-top: 28px">
+          <div class="about-btns">
             <a href="assets/CV/Rivaldo_Nainggolan_CV.pdf" download>
               <button class="btn-primary">Download CV</button>
             </a>
@@ -1110,7 +1263,6 @@
                   .querySelector('#contact')
                   .scrollIntoView({ behavior: 'smooth' })
               "
-              style="color: rgba(255, 255, 255, 0.8)"
             >
               Get In Touch
             </button>
@@ -2111,6 +2263,21 @@
         emailjs.init("ljvafDc51_oOyjf91");
       })();
 
+      // ─── Theme Toggle ───
+      const html = document.documentElement;
+      const toggleBtn = document.getElementById("themeToggle");
+
+      // Load saved preference (default: light)
+      const saved = localStorage.getItem("theme") || "light";
+      html.setAttribute("data-theme", saved);
+
+      toggleBtn.addEventListener("click", () => {
+        const current = html.getAttribute("data-theme");
+        const next = current === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
       // ─── Contact Form ───
       document
         .getElementById("contact-form")
@@ -2200,6 +2367,27 @@
         { threshold: 0.35 },
       );
       sections.forEach((s) => io.observe(s));
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+
+          if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
     </script>
   </body>
 </html>
