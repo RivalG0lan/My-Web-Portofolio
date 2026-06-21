@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -94,5 +94,2112 @@
       <p id="copyright"></p>
     </footer>
     <script src="index.js"></script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rivaldo Nainggolan — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <style>
+      /* ─── TOKENS ─── */
+      :root {
+        --blue: #137fec;
+        --blue-dim: #0f6bd1;
+        --blue-muted: rgba(19, 127, 236, 0.12);
+        --dark: #070d1a;
+        --dark2: #0e1629;
+        --slate: #1e2d45;
+        --body-bg: #f4f7fb;
+        --card-bg: #ffffff;
+        --text-1: #0a1628;
+        --text-2: #475569;
+        --text-3: #64748b;
+        --border: #e2e8f0;
+        --radius-sm: 10px;
+        --radius-md: 16px;
+        --radius-lg: 22px;
+        --shadow-card: 0 4px 24px rgba(10, 22, 40, 0.08);
+        --shadow-hover: 0 16px 48px rgba(10, 22, 40, 0.14);
+      }
+
+      /* ─── RESET ─── */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--body-bg);
+        color: var(--text-1);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img,
+      video,
+      iframe {
+        display: block;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      /* ─── SCROLLBAR ─── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 3px;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        height: 64px;
+        background: rgba(7, 13, 26, 0.82);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        transition: background 0.3s;
+      }
+      .nav-logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+      .nav-logo span {
+        color: var(--blue);
+      }
+      .nav-links {
+        display: flex;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.01em;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 1px;
+        transition: width 0.25s ease;
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-links a.active {
+        color: #fff;
+      }
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      /* ─── HERO ─── */
+      #home {
+        min-height: 100vh;
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        padding: 100px 80px 80px;
+        gap: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* subtle grid overlay */
+      #home::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(19, 127, 236, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(19, 127, 236, 0.04) 1px, transparent 1px);
+        background-size: 52px 52px;
+        pointer-events: none;
+      }
+      /* blue glow blob */
+      #home::after {
+        content: "";
+        position: absolute;
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(19, 127, 236, 0.18) 0%,
+          transparent 70%
+        );
+        top: -100px;
+        left: -100px;
+        pointer-events: none;
+      }
+      .hero-left {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 20px;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 1px;
+      }
+      .hero-left h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(42px, 5.5vw, 72px);
+        font-weight: 700;
+        line-height: 1.07;
+        letter-spacing: -0.04em;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+      .hero-left h1 .stroke-text {
+        -webkit-text-stroke: 2px var(--blue);
+        color: transparent;
+      }
+      .hero-desc {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.58);
+        max-width: 500px;
+        line-height: 1.75;
+        margin-bottom: 36px;
+      }
+      .skill-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+      .skill-chips span {
+        background: rgba(19, 127, 236, 0.12);
+        border: 1px solid rgba(19, 127, 236, 0.25);
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 999px;
+        transition: all 0.2s;
+      }
+      .skill-chips span:hover {
+        background: rgba(19, 127, 236, 0.25);
+        border-color: var(--blue);
+        color: #fff;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+      }
+      .btn-primary {
+        height: 48px;
+        padding: 0 28px;
+        border-radius: var(--radius-sm);
+        font-size: 14.5px;
+        font-weight: 700;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        box-shadow: 0 8px 28px rgba(19, 127, 236, 0.4);
+        transition: all 0.25s;
+      }
+      .btn-primary:hover {
+        background: var(--blue-dim);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(19, 127, 236, 0.5);
+      }
+      .btn-secondary {
+        height: 48px;
+        padding: 0 28px;
+        border-radius: var(--radius-sm);
+        font-size: 14.5px;
+        font-weight: 700;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transition: all 0.25s;
+      }
+      .btn-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .hero-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-video-wrapper {
+        width: 100%;
+        max-width: 580px;
+        aspect-ratio: 16/9;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow:
+          0 32px 80px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(19, 127, 236, 0.15);
+        position: relative;
+      }
+      .hero-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* ─── SECTION SHARED ─── */
+      section {
+        padding: 96px 80px;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 14px;
+      }
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 1px;
+      }
+      .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+      .section-subtitle {
+        font-size: 16px;
+        color: var(--text-2);
+        max-width: 600px;
+        line-height: 1.75;
+      }
+
+      /* ─── ABOUT ─── */
+      #about {
+        background: var(--dark2);
+        color: #fff;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 72px;
+        align-items: center;
+        margin-top: 52px;
+      }
+      .about-img-wrap {
+        position: relative;
+      }
+      .about-img-wrap img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .about-img-badge {
+        position: absolute;
+        bottom: 20px;
+        right: -20px;
+        background: var(--blue);
+        color: #fff;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 12px 18px;
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 24px rgba(19, 127, 236, 0.4);
+        white-space: nowrap;
+      }
+      .about-content .section-title {
+        color: #fff;
+      }
+      .about-content p {
+        font-size: 15.5px;
+        color: rgba(255, 255, 255, 0.62);
+        margin-bottom: 16px;
+        text-align: justify;
+        hyphens: auto;
+      }
+      .about-stats {
+        display: flex;
+        gap: 32px;
+        margin: 32px 0;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-num {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--blue);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 4px;
+        letter-spacing: 0.05em;
+      }
+      .about-btns {
+        display: flex;
+        gap: 14px;
+        margin-top: 8px;
+      }
+
+      /* ─── SKILLS ─── */
+      #skills {
+        background: var(--body-bg);
+      }
+      .skills-header {
+        margin-bottom: 52px;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 22px;
+      }
+      .skill-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .skill-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+        border-color: rgba(19, 127, 236, 0.3);
+      }
+      .skill-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: #eaf3ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .skill-icon img {
+        width: 28px;
+        height: 28px;
+      }
+      .skill-card-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+      }
+      .skill-card-desc {
+        font-size: 13.5px;
+        color: var(--text-2);
+        margin-top: 4px;
+      }
+      .skill-items {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .skill-item {
+        padding-top: 14px;
+        border-top: 1px solid #edf2f7;
+      }
+      .skill-item h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-1);
+      }
+      .skill-item p {
+        font-size: 12.5px;
+        color: var(--text-3);
+        margin-top: 3px;
+      }
+
+      /* ─── PROJECTS ─── */
+      #projects {
+        background: #fff;
+      }
+      .projects-header {
+        margin-bottom: 52px;
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+      }
+      .project-card {
+        background: var(--body-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+      }
+      .project-media {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #0a0f1e;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-media iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .project-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+      }
+      .project-card:hover .project-media img {
+        transform: scale(1.04);
+      }
+      .project-body {
+        padding: 20px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+      }
+      .project-body h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 15.5px;
+        font-weight: 700;
+      }
+      .project-body p {
+        font-size: 13px;
+        color: var(--text-2);
+        flex: 1;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 12px;
+        text-align: justify;
+        hyphens: auto;
+      }
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--blue);
+        margin-top: 4px;
+        transition: gap 0.2s;
+      }
+      .project-link:hover {
+        gap: 10px;
+      }
+
+      /* ─── CONTACT ─── */
+      #contact {
+        background: var(--dark);
+        color: #fff;
+      }
+      #contact .section-title {
+        color: #fff;
+      }
+      #contact .section-subtitle {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 64px;
+        margin-top: 52px;
+        align-items: start;
+      }
+      .contact-info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-sm);
+        padding: 16px 18px;
+        transition: all 0.25s;
+      }
+      .contact-card:hover {
+        background: rgba(19, 127, 236, 0.1);
+        border-color: rgba(19, 127, 236, 0.3);
+        transform: translateX(4px);
+      }
+      .contact-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(19, 127, 236, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-card-icon .material-symbols-outlined,
+      .contact-card-icon i {
+        font-size: 20px;
+        color: var(--blue);
+      }
+      .contact-card-text p:first-child {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .contact-card-text p:last-child {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .contact-card-link {
+        margin-left: auto;
+        opacity: 0.4;
+        transition: opacity 0.2s;
+      }
+      .contact-card-link:hover {
+        opacity: 1;
+      }
+      .contact-card-link .material-symbols-outlined {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      /* Contact Form */
+      .contact-form-wrap {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-lg);
+        padding: 36px;
+      }
+      .contact-form-wrap h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #fff;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        font-family: inherit;
+        font-size: 14px;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(19, 127, 236, 0.2);
+      }
+      .form-submit {
+        width: 100%;
+        height: 50px;
+        border-radius: 12px;
+        border: none;
+        background: var(--blue);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 4px;
+        transition: all 0.25s;
+        box-shadow: 0 8px 28px rgba(19, 127, 236, 0.35);
+      }
+      .form-submit:hover {
+        background: var(--blue-dim);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 36px rgba(19, 127, 236, 0.5);
+      }
+      .form-submit:active {
+        transform: scale(0.98);
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
+        padding: 24px 80px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* ─── IMAGE MODAL ─── */
+      .img-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.2s ease;
+      }
+      .img-modal.active {
+        display: flex;
+      }
+      .img-modal img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+        animation: zoomIn 0.25s ease;
+      }
+
+      /* ─── SCROLL REVEAL ─── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── ANIMATIONS ─── */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.85);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 1024px) {
+        nav {
+          padding: 0 40px;
+        }
+        #home,
+        section {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .about-img-wrap img {
+          aspect-ratio: 16/9;
+          max-height: 340px;
+        }
+        .about-img-badge {
+          right: 0;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 20px;
+        }
+        .nav-links {
+          gap: 20px;
+        }
+        .nav-links a {
+          font-size: 12px;
+        }
+        #home {
+          flex-direction: column;
+          padding: 100px 20px 60px;
+          text-align: center;
+        }
+        .hero-eyebrow {
+          justify-content: center;
+        }
+        .skill-chips {
+          justify-content: center;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .hero-desc {
+          margin: 0 auto 36px;
+        }
+        section {
+          padding: 64px 20px;
+        }
+        footer {
+          padding: 20px;
+        }
+        .about-stats {
+          gap: 20px;
+        }
+        .about-btns {
+          flex-wrap: wrap;
+        }
+      }
+      @media (max-width: 520px) {
+        .nav-links {
+          gap: 14px;
+        }
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="navbar">
+      <div class="nav-logo">Rival<span>G0</span>lan</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HOME / HERO -->
+    <section id="home">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          D3 Informatics · Universitas Sumatera Utara
+        </div>
+        <h1>
+          Hello, I'm<br />
+          <span class="stroke-text">Rivaldo</span> Nainggolan
+        </h1>
+        <p class="hero-desc">
+          Junior IT Support & Frontend Developer based in Medan. Building clean
+          interfaces, data-driven systems, and interactive experiences.
+        </p>
+        <div class="skill-chips">
+          <span>Microsoft Office</span>
+          <span>Frontend Web Dev</span>
+          <span>Flutter Mobile</span>
+          <span>Multimedia</span>
+          <span>C / C# / Java / Python</span>
+          <span>Game Dev</span>
+          <span>Data Processing</span>
+        </div>
+        <div class="hero-btns">
+          <a href="assets/CV/Rivaldo_Nainggolan_CV.pdf" download>
+            <button class="btn-primary">Download CV</button>
+          </a>
+          <button
+            class="btn-secondary"
+            onclick="
+              document
+                .querySelector('#projects')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            View Projects
+          </button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-video-wrapper">
+          <video autoplay loop muted playsinline>
+            <source
+              src="assets/video/Video Loop Portofolio.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-label">Who I Am</div>
+      <h2 class="section-title" style="color: #fff">About Me</h2>
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img src="assets/img/foto-about-me.jpeg" alt="Rivaldo Nainggolan" />
+          <div class="about-img-badge">📍 Medan, Indonesia</div>
+        </div>
+        <div class="about-content reveal">
+          <h2 class="section-title">
+            Informatics Student &amp;<br />Junior Developer
+          </h2>
+          <p>
+            A D3 Informatics student at Universitas Sumatera Utara, accustomed
+            to using computers for office and technical tasks. I have hands-on
+            experience in programming, front-end web development, Flutter mobile
+            apps, multimedia, game development, and data processing.
+          </p>
+          <p>
+            Currently available for remote and hybrid work opportunities in IT
+            Support, Fullstack Development, UI/UX Design, and Game Development.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-num">17+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">7</div>
+              <div class="stat-label">Skill Areas</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">2024</div>
+              <div class="stat-label">Angkatan</div>
+            </div>
+          </div>
+          <p>
+            Skilled in VS Code, Microsoft Office Suite, Adobe Premiere Pro,
+            After Effects, Photoshop, Figma, Canva, Unity, Jupyter Notebook,
+            Google Colab, and more. Available for remote and hybrid
+            arrangements.
+          </p>
+          <div class="about-btns" style="margin-top: 28px">
+            <a href="assets/CV/Rivaldo_Nainggolan_CV.pdf" download>
+              <button class="btn-primary">Download CV</button>
+            </a>
+            <button
+              class="btn-secondary"
+              onclick="
+                document
+                  .querySelector('#contact')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              style="color: rgba(255, 255, 255, 0.8)"
+            >
+              Get In Touch
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="skills-header">
+        <div class="section-label">What I Know</div>
+        <h2 class="section-title">Technical Proficiency</h2>
+        <p class="section-subtitle">
+          An overview of my current skills as a Junior IT Support and Web
+          Developer. I focus on reliable execution, basic troubleshooting, and
+          continuous improvement.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/source-code.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Programming</div>
+              <div class="skill-card-desc">
+                Basic proficiency in C, C#, Java, and Python.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>IDEs</h4>
+              <p>VSCode, CodeBlocks, NetBeans</p>
+            </div>
+            <div class="skill-item">
+              <h4>Troubleshooting</h4>
+              <p>Debugging, Workflow Understanding, Less Blind Rate Coding</p>
+            </div>
+            <div class="skill-item">
+              <h4>Coding Efficiency</h4>
+              <p>Avoiding Memory Leaks, Clean Code Practices</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/internet.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Frontend Web Development</div>
+              <div class="skill-card-desc">
+                Building responsive, clean-layout websites.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>Core Technologies</h4>
+              <p>HTML5, CSS3, JavaScript</p>
+            </div>
+            <div class="skill-item">
+              <h4>UI Implementation</h4>
+              <p>Converting designs into web layouts from mockups</p>
+            </div>
+            <div class="skill-item">
+              <h4>Responsive Design</h4>
+              <p>Flexbox, Grid, and media queries</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/smartphone.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Mobile Apps Development</div>
+              <div class="skill-card-desc">
+                Flutter-based Android apps with Dart.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>Framework</h4>
+              <p>Flutter (Dart)</p>
+            </div>
+            <div class="skill-item">
+              <h4>Structure</h4>
+              <p>Navigation, widgets, simple state management</p>
+            </div>
+            <div class="skill-item">
+              <h4>Workflow</h4>
+              <p>VSCode, emulator testing, basic debugging</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/customer-support.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">
+                IT Support &amp; System Assistance
+              </div>
+              <div class="skill-card-desc">
+                Basic maintenance and troubleshooting.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>System Support</h4>
+              <p>Windows installation, configuration, app setup</p>
+            </div>
+            <div class="skill-item">
+              <h4>Troubleshooting</h4>
+              <p>Identifying common hardware and software issues</p>
+            </div>
+            <div class="skill-item">
+              <h4>Hardware</h4>
+              <p>Basic computer components and peripherals</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/video-editing.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Multimedia &amp; Design</div>
+              <div class="skill-card-desc">
+                Visual content, editing, and UI mockups.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>Design Tools</h4>
+              <p>Figma, Canva</p>
+            </div>
+            <div class="skill-item">
+              <h4>Editing Software</h4>
+              <p>Adobe Premiere Pro, After Effects, Photoshop</p>
+            </div>
+            <div class="skill-item">
+              <h4>Use Cases</h4>
+              <p>Video editing, image editing, UI mockups</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/unity.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Game Development</div>
+              <div class="skill-card-desc">
+                Unity and Roblox Studio projects.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>Engines</h4>
+              <p>Unity, Roblox Studio</p>
+            </div>
+            <div class="skill-item">
+              <h4>Programming</h4>
+              <p>C# scripting, Lua scripting, gameplay logic</p>
+            </div>
+            <div class="skill-item">
+              <h4>Tasks</h4>
+              <p>UI systems, player interactions, asset integration</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <div class="skill-icon">
+              <img
+                src="https://img.icons8.com/ios-filled/50/137fec/combo-chart.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="skill-card-title">Data Processing</div>
+              <div class="skill-card-desc">
+                Cleaning, analysis, and visualization with Python.
+              </div>
+            </div>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <h4>Tools</h4>
+              <p>Google Colab, Jupyter Notebook</p>
+            </div>
+            <div class="skill-item">
+              <h4>Libraries</h4>
+              <p>Pandas, NumPy, Matplotlib, Seaborn</p>
+            </div>
+            <div class="skill-item">
+              <h4>Machine Learning</h4>
+              <p>TF-IDF, Complement Naive Bayes, classification models</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="projects-header">
+        <div class="section-label">My Work</div>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          A showcase of academic, personal, and team projects across web,
+          mobile, AI, game, and data domains.
+        </p>
+      </div>
+      <div class="project-grid">
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/g4Cacx6-bLI?si=JFNnlelmfN22q18E"
+              title="Multimedia GUI Roblox Studio"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Multimedia GUI — Roblox Studio</h3>
+            <p>
+              Led the UI/UX division for a Roblox map
+              <strong>Medan Heritage</strong>. Designed in Figma, built in
+              Roblox Studio with Lua scripting for interactive elements.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-Multimedia-GUIRobloxStudio"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/VmFFosDiSdA?si=mpGQ9SSVMMvxIpAY"
+              title="Database Hotel Booking"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Database — Hotel Booking</h3>
+            <p>
+              Designed a normalized hotel tourism booking database (UNF → 3NF)
+              from Kaggle data, imported via phpMyAdmin on XAMPP.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-Database-HotelBooking"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/54VJpYmX5Ak?si=tRyU_pnjV7jttnbp"
+              title="Network Computer"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Network — Internet Cafe Topology</h3>
+            <p>
+              Designed and simulated an Internet Cafe network in Cisco Packet
+              Tracer with LAN cabling, subnets, inter-router routing, and DHCP
+              pools.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-A2-1stGroup-NetworkComputer-InternetCafeTopology"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/Zx32FBz34XE?si=TtF_J0UJYaxBidRw"
+              title="SIAKAD Vocation"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Database — SIAKAD Vocation</h3>
+            <p>
+              Web-based Academic Information System for D3 Informatics
+              supporting registration, grading, attendance, and parent
+              monitoring with role-based access using PHP &amp; MySQL.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-Sistem-Basis-Data-Siakad-Tehnik-Informatika-USU"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/1WWcaGfo-DA?si=RbeX4G4yj2J4cJ0g"
+              title="LokerIn Job Portal"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Web Programming — LokerIn Job Portal</h3>
+            <p>
+              Full-stack PHP/MySQL job portal with dual-role auth, real-time
+              messaging, application tracking, skill gap analyzer, and a company
+              analytics dashboard on a LAMP stack.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-WebProggramming-JobSearch"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/QwXKrTOnDK0?si=JYyq24KyM09j2itz"
+              title="Music Video Player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Mobile — ViAuo Music &amp; Video Player</h3>
+            <p>
+              Android music and video player built with Flutter featuring
+              multi-page navigation, media search, playback history, and modern
+              permission handling.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-Mobile-Programming-Music-Video_Player"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/TQazgA5-qdU?si=tALPlbbwLwU-VsiV"
+              title="Portfolio Web"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>My Portfolio Website</h3>
+            <p>
+              Personal portfolio built with HTML, CSS, and JavaScript showcasing
+              profile, skills, and projects as a digital resume for IT and
+              development roles.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/My-Web-Portofolio"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/_fiMBZWMiGY?si=dLakPmmEdZp77e4x"
+              title="Multimedia Midterm"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Multimedia Midterm Exam Project</h3>
+            <p>
+              Mobile application UI/UX design for academic services, focusing on
+              accessibility and usability for students through structured,
+              user-friendly interface design.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Multimedia-Midterm-Exam"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/HNL4fwnoHW8?si=Rjs7Q7NTNmtUcE6o"
+              title="Multimedia Group 5"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="project-body">
+            <h3>Multimedia Group-5 — Healthy Drinks App</h3>
+            <p>
+              Team-based UI/UX design in Figma for a healthy drink ordering
+              mobile app, built on user personas for visual consistency and
+              audience alignment.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Multimedia-Group5-Project"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/hasil_proyek-chess-ai.png"
+              alt="AI Chess Game"
+            />
+          </div>
+          <div class="project-body">
+            <h3>AI Chess Game — Minimax Algorithm</h3>
+            <p>
+              Python chess game using Minimax with Alpha-Beta Pruning.
+              Interactive Pygame interface for playing against the AI.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/ai-game-catur-minimax"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/hasil_proyek-face-recog.png"
+              alt="Face Recognition"
+            />
+          </div>
+          <div class="project-body">
+            <h3>Simple Face Recognition — Python</h3>
+            <p>
+              Real-time face recognition with Python, OpenCV, and
+              face_recognition — detects and identifies faces from a predefined
+              dataset.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/simple-face-recognition-python-ai"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/program interpolasi.png"
+              alt="Interpolation Program"
+            />
+          </div>
+          <div class="project-body">
+            <h3>Interpolation Newton-Gregory Program</h3>
+            <p>
+              Python numerical computing app implementing Linear Interpolation,
+              Newton Divided Differences, Forward and Backward methods with CSV
+              support and data visualization.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Numerical-Computer---Interpolation-Newton-Gregory"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img src="assets/img/SPK SIM.png" alt="Decision Support System" />
+          </div>
+          <div class="project-body">
+            <h3>Decision Support System — Bakery Sales</h3>
+            <p>
+              Python analytics system on 2006–2019 bakery data using SAW and
+              TOPSIS for promotional budget and product prioritization
+              recommendations.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Project-management-information-systems-Group1"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/hasil sentimen analisis - excel.png"
+              alt="Sentiment Analysis"
+            />
+          </div>
+          <div class="project-body">
+            <h3>Sentiment Analysis — Machine Learning</h3>
+            <p>
+              Flask web app classifying e-commerce reviews using TF-IDF and
+              Complement Naive Bayes, with interactive visualizations and
+              confidence scores.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/Group-4-Ai-Practice_Project-Sentimen-Analysis"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img src="assets/img/1st-Unity-Game.png" alt="Unity Game" />
+          </div>
+          <div class="project-body">
+            <h3>Collect The Stars — Unity</h3>
+            <p>
+              Simple 3D Unity game where players collect stars. Features C#
+              scripting for UI, restart functionality, sound effects, and
+              gameplay interactions.
+            </p>
+            <a
+              class="project-link"
+              href="https://play.unity.com/en/games/cbef347a-416f-4d78-b215-8aec37bad7c4/gamemengumpulkanitem"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/InteractiveMap-IndonesianTribes.png"
+              alt="Indonesian Tribes Map"
+            />
+          </div>
+          <div class="project-body">
+            <h3>Interactive Map — Indonesian Tribes</h3>
+            <p>
+              Web map exploring ethnic diversity across all 38 provinces using
+              Leaflet.js, with tribe info, cultural heritage, and regional
+              statistics.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/UNIKA-PGSD-Sari-Natalia-Suku_Indonesia"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-media">
+            <img
+              src="assets/img/InteractiveMap-Indonesia'sMountains.png"
+              alt="Indonesia Mountains Map"
+            />
+          </div>
+          <div class="project-body">
+            <h3>Interactive Map — Indonesia's Mountains</h3>
+            <p>
+              Leaflet.js map of Indonesian mountains with search, geographic
+              info, dark mode, and responsive design for educational
+              exploration.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/RivalG0lan/peta-interaktif-gunung-nusantara"
+              target="_blank"
+              rel="noopener"
+              >See More
+              <span class="material-symbols-outlined" style="font-size: 16px"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-subtitle">
+        Open to opportunities in IT Support, Programming, Frontend Web
+        Development, UI/UX Design, Flutter, and multimedia. Say hello — I'll
+        respond as soon as possible.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-info-list">
+          <a href="mailto:nainggolanripaldo07@gmail.com" target="_blank">
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+              <div class="contact-card-text">
+                <p>Email</p>
+                <p>nainggolanripaldo07@gmail.com</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">launch</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/rivaldo-nainggolan-tfhfh656/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <span class="material-symbols-outlined">work</span>
+              </div>
+              <div class="contact-card-text">
+                <p>LinkedIn</p>
+                <p>Rivaldo Nainggolan</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">open_in_new</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/RivalG0lan"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <span class="material-symbols-outlined">code</span>
+              </div>
+              <div class="contact-card-text">
+                <p>GitHub</p>
+                <p>RivalG0lan</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">open_in_new</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.instagram.com/paldo1803"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <span class="material-symbols-outlined">photo_camera</span>
+              </div>
+              <div class="contact-card-text">
+                <p>Instagram</p>
+                <p>@paldo1803</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">open_in_new</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@labex183"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <span class="material-symbols-outlined">smart_display</span>
+              </div>
+              <div class="contact-card-text">
+                <p>YouTube</p>
+                <p>@labex183</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">open_in_new</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@paldo1803"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fa-brands fa-tiktok"></i>
+              </div>
+              <div class="contact-card-text">
+                <p>TikTok</p>
+                <p>@paldo1803</p>
+              </div>
+              <div class="contact-card-link">
+                <span class="material-symbols-outlined">open_in_new</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="contact-card" style="cursor: default">
+            <div class="contact-card-icon">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div class="contact-card-text">
+              <p>Location</p>
+              <p>Medan, North Sumatra, Indonesia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <h3>Send a Message</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="What's this about?"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me more..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p id="copyright"></p>
+    </footer>
+
+    <!-- IMAGE MODAL -->
+    <div class="img-modal" id="imgModal">
+      <img id="modalImg" src="" alt="Preview" />
+    </div>
+
+    <script>
+      // ─── EmailJS ───
+      (function () {
+        emailjs.init("ljvafDc51_oOyjf91");
+      })();
+
+      // ─── Contact Form ───
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const form = this;
+          const btn = form.querySelector(".form-submit");
+          if (
+            !form.name.value.trim() ||
+            !form.email.value.trim() ||
+            !form.message.value.trim()
+          ) {
+            alert("Please fill all required fields.");
+            return;
+          }
+          btn.textContent = "Sending…";
+          btn.disabled = true;
+          emailjs.sendForm("service_71yica1", "template_3w0sswd", form).then(
+            () => {
+              alert("Message sent successfully!");
+              form.reset();
+              btn.textContent = "Send Message";
+              btn.disabled = false;
+            },
+            (err) => {
+              alert("Failed to send. Please try again.");
+              console.error(err);
+              btn.textContent = "Send Message";
+              btn.disabled = false;
+            },
+          );
+        });
+
+      // ─── Copyright ───
+      const start = 2025,
+        now = new Date().getFullYear();
+      document.getElementById("copyright").textContent =
+        now === start
+          ? `©${start} Rivaldo Nainggolan. All rights reserved.`
+          : `©${start}–${now} Rivaldo Nainggolan. All rights reserved.`;
+
+      // ─── Image Modal ───
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      document.querySelectorAll(".project-media img").forEach((img) => {
+        img.addEventListener("click", () => {
+          modal.classList.add("active");
+          modalImg.src = img.src;
+        });
+      });
+      modal.addEventListener("click", () => modal.classList.remove("active"));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") modal.classList.remove("active");
+      });
+
+      // ─── Scroll Reveal ───
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((el) => {
+            if (el.isIntersecting) {
+              el.target.classList.add("visible");
+              observer.unobserve(el.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // ─── Active Nav Link ───
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((a) => a.classList.remove("active"));
+              const active = document.querySelector(
+                `.nav-links a[href="#${entry.target.id}"]`,
+              );
+              if (active) active.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.35 },
+      );
+      sections.forEach((s) => io.observe(s));
+    </script>
   </body>
 </html>
