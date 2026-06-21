@@ -134,9 +134,9 @@
         --nav-link-hover: #0a1628;
         --nav-border: rgba(0, 0, 0, 0.07);
 
-        /* HERO — always dark */
-        --hero-bg: #0d1b35;
-        --hero-bg2: #112040;
+        /* HERO */
+        --hero-bg: #f4f7fb;
+        --hero-border: rgba(10, 22, 40, 0.1);
 
         /* BODY / GENERAL */
         --body-bg: #f4f7fb;
@@ -154,16 +154,24 @@
         --projects-bg: #ffffff;
         --project-card-bg: #f4f7fb;
 
-        /* ABOUT — always dark */
-        --about-bg: #0e1629;
+        /* ABOUT */
+        --about-bg: #ffffff;
+        --about-border: rgba(10, 22, 40, 0.08);
 
-        /* CONTACT — always dark */
-        --contact-bg: #070d1a;
+        /* CONTACT */
+        --contact-bg: #f4f7fb;
+        --contact-card-bg: #ffffff;
+        --contact-card-border: rgba(10, 22, 40, 0.08);
+        --contact-form-bg: #ffffff;
+        --contact-form-border: rgba(10, 22, 40, 0.08);
+        --form-input-bg: rgba(10, 22, 40, 0.03);
+        --form-input-border: rgba(10, 22, 40, 0.14);
+        --form-placeholder: rgba(10, 22, 40, 0.32);
 
-        /* FOOTER — always dark */
-        --footer-bg: #070d1a;
-        --footer-border: rgba(255, 255, 255, 0.06);
-        --footer-text: rgba(255, 255, 255, 0.3);
+        /* FOOTER */
+        --footer-bg: #ffffff;
+        --footer-border: rgba(10, 22, 40, 0.08);
+        --footer-text: rgba(10, 22, 40, 0.4);
 
         /* MISC */
         --radius-sm: 10px;
@@ -196,6 +204,25 @@
 
         --projects-bg: #0e1629;
         --project-card-bg: #0b1120;
+
+        --hero-bg: #0d1b35;
+        --hero-border: rgba(255, 255, 255, 0.08);
+
+        --about-bg: #0e1629;
+        --about-border: rgba(255, 255, 255, 0.08);
+
+        --contact-bg: #070d1a;
+        --contact-card-bg: rgba(255, 255, 255, 0.04);
+        --contact-card-border: rgba(255, 255, 255, 0.08);
+        --contact-form-bg: rgba(255, 255, 255, 0.03);
+        --contact-form-border: rgba(255, 255, 255, 0.08);
+        --form-input-bg: rgba(255, 255, 255, 0.05);
+        --form-input-border: rgba(255, 255, 255, 0.1);
+        --form-placeholder: rgba(255, 255, 255, 0.2);
+
+        --footer-bg: #070d1a;
+        --footer-border: rgba(255, 255, 255, 0.06);
+        --footer-text: rgba(255, 255, 255, 0.3);
 
         --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
         --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.55);
@@ -431,8 +458,9 @@
         font-weight: 700;
         line-height: 1.07;
         letter-spacing: -0.04em;
-        color: #fff;
+        color: var(--text-1);
         margin-bottom: 24px;
+        transition: color 0.3s;
       }
       .hero-left h1 .stroke-text {
         -webkit-text-stroke: 2px var(--blue);
@@ -440,10 +468,11 @@
       }
       .hero-desc {
         font-size: 17px;
-        color: rgba(255, 255, 255, 0.58);
+        color: var(--text-2);
         max-width: 500px;
         line-height: 1.75;
         margin-bottom: 36px;
+        transition: color 0.3s;
       }
       .skill-chips {
         display: flex;
@@ -454,7 +483,7 @@
       .skill-chips span {
         background: rgba(19, 127, 236, 0.12);
         border: 1px solid rgba(19, 127, 236, 0.28);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--text-1);
         font-size: 11.5px;
         font-weight: 600;
         letter-spacing: 0.08em;
@@ -496,13 +525,13 @@
         font-size: 14.5px;
         font-weight: 700;
         background: transparent;
-        color: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text-2);
+        border: 1px solid var(--hero-border);
         transition: all 0.25s;
       }
       .btn-secondary:hover {
-        border-color: rgba(255, 255, 255, 0.55);
-        color: #fff;
+        border-color: var(--text-1);
+        color: var(--text-1);
         transform: translateY(-2px);
       }
       .hero-right {
@@ -519,7 +548,7 @@
         aspect-ratio: 16/9;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--hero-border);
         box-shadow:
           0 32px 80px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(19, 127, 236, 0.15);
@@ -578,8 +607,10 @@
     ═══════════════════════════════════════════ */
       #about {
         background: var(--about-bg);
-        color: #fff;
-        transition: background 0.3s;
+        color: var(--text-1);
+        transition:
+          background 0.3s,
+          color 0.3s;
       }
       .about-grid {
         display: grid;
@@ -597,7 +628,7 @@
         object-fit: cover;
         object-position: center top;
         border-radius: var(--radius-lg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--about-border);
       }
       .about-img-badge {
         position: absolute;
@@ -614,11 +645,11 @@
         white-space: nowrap;
       }
       .about-content .section-title {
-        color: #fff;
+        color: var(--text-1);
       }
       .about-content p {
         font-size: 15.5px;
-        color: rgba(255, 255, 255, 0.62);
+        color: var(--text-2);
         margin-bottom: 16px;
         text-align: justify;
         hyphens: auto;
@@ -640,7 +671,7 @@
       }
       .stat-label {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.45);
+        color: var(--text-3);
         margin-top: 4px;
         letter-spacing: 0.05em;
       }
@@ -826,14 +857,16 @@
     ═══════════════════════════════════════════ */
       #contact {
         background: var(--contact-bg);
-        color: #fff;
-        transition: background 0.3s;
+        color: var(--text-1);
+        transition:
+          background 0.3s,
+          color 0.3s;
       }
       #contact .section-title {
-        color: #fff;
+        color: var(--text-1);
       }
       #contact .section-subtitle {
-        color: rgba(255, 255, 255, 0.5);
+        color: var(--text-2);
       }
       .contact-grid {
         display: grid;
@@ -851,8 +884,8 @@
         display: flex;
         align-items: center;
         gap: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--contact-card-bg);
+        border: 1px solid var(--contact-card-border);
         border-radius: var(--radius-sm);
         padding: 16px 18px;
         transition: all 0.25s;
@@ -880,11 +913,11 @@
       .contact-card-text p:first-child {
         font-size: 13px;
         font-weight: 700;
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--text-1);
       }
       .contact-card-text p:last-child {
         font-size: 12.5px;
-        color: rgba(255, 255, 255, 0.45);
+        color: var(--text-3);
       }
       .contact-card-link {
         margin-left: auto;
@@ -896,12 +929,12 @@
       }
       .contact-card-link .material-symbols-outlined {
         font-size: 18px;
-        color: #fff;
+        color: var(--text-1);
       }
 
       .contact-form-wrap {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--contact-form-bg);
+        border: 1px solid var(--contact-form-border);
         border-radius: var(--radius-lg);
         padding: 36px;
       }
@@ -910,7 +943,7 @@
         font-size: 20px;
         font-weight: 700;
         margin-bottom: 24px;
-        color: #fff;
+        color: var(--text-1);
       }
       .form-group {
         display: flex;
@@ -921,22 +954,24 @@
       .form-group label {
         font-size: 13px;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--text-2);
       }
       .form-group input,
       .form-group textarea {
         width: 100%;
         padding: 12px 16px;
         border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
+        border: 1px solid var(--form-input-border);
+        background: var(--form-input-bg);
+        color: var(--text-1);
         font-family: inherit;
         font-size: 14px;
         outline: none;
         transition:
           border-color 0.2s,
-          box-shadow 0.2s;
+          box-shadow 0.2s,
+          background 0.3s,
+          color 0.3s;
       }
       .form-group textarea {
         min-height: 120px;
@@ -944,7 +979,7 @@
       }
       .form-group input::placeholder,
       .form-group textarea::placeholder {
-        color: rgba(255, 255, 255, 0.2);
+        color: var(--form-placeholder);
       }
       .form-group input:focus,
       .form-group textarea:focus {
@@ -1213,7 +1248,7 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="section-label">Who I Am</div>
-      <h2 class="section-title" style="color: #fff">About Me</h2>
+      <h2 class="section-title" style="color: var(--text-1)">About Me</h2>
       <div class="about-grid">
         <div class="about-img-wrap reveal">
           <img src="assets/img/foto-about-me.jpeg" alt="Rivaldo Nainggolan" />
