@@ -102,7 +102,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rivaldo Nainggolan</title>
+    <title>Rivaldo Nainggolan — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/png" href="assets/img/Logo-Icon-Website.png" />
@@ -252,9 +252,6 @@
           background 0.3s,
           color 0.3s;
       }
-      body.nav-open {
-        overflow: hidden;
-      }
       a {
         text-decoration: none;
         color: inherit;
@@ -389,56 +386,6 @@
       }
       [data-theme="dark"] .icon-moon {
         display: none;
-      }
-
-      /* ─── HAMBURGER (mobile nav trigger) ─── */
-      .hamburger {
-        display: none;
-        width: 38px;
-        height: 38px;
-        border: none;
-        background: transparent;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        cursor: pointer;
-        flex-shrink: 0;
-        z-index: 1001;
-      }
-      .hamburger span {
-        display: block;
-        width: 22px;
-        height: 2px;
-        border-radius: 2px;
-        background: var(--nav-logo);
-        transition:
-          transform 0.3s ease,
-          opacity 0.3s ease;
-      }
-      .hamburger.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      /* ─── MOBILE NAV OVERLAY ─── */
-      .nav-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(4, 9, 20, 0.45);
-        z-index: 998;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      .nav-overlay.active {
-        display: block;
-        opacity: 1;
       }
 
       /* ═══════════════════════════════════════════
@@ -1165,46 +1112,11 @@
         nav {
           padding: 0 20px;
         }
-        .hamburger {
-          display: flex;
-        }
         .nav-links {
-          position: fixed;
-          top: 64px;
-          right: 0;
-          height: calc(100vh - 64px);
-          width: min(78vw, 300px);
-          background: var(--nav-bg);
-          backdrop-filter: blur(14px);
-          border-left: 1px solid var(--nav-border);
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 2px;
-          padding: 24px;
-          margin: 0;
-          transform: translateX(100%);
-          transition: transform 0.3s ease;
-          overflow-y: auto;
-          box-shadow: -10px 0 32px rgba(0, 0, 0, 0.2);
-        }
-        .nav-links.active {
-          transform: translateX(0);
-        }
-        .nav-links li {
-          width: 100%;
+          gap: 16px;
         }
         .nav-links a {
-          display: block;
-          width: 100%;
-          padding: 14px 4px;
-          font-size: 15.5px;
-          border-bottom: 1px solid var(--nav-border);
-        }
-        .nav-links a::after {
-          display: none;
-        }
-        .nav-links .theme-toggle {
-          margin: 16px 0 0;
+          font-size: 12px;
         }
         #home {
           flex-direction: column;
@@ -1235,46 +1147,16 @@
         .about-btns {
           flex-wrap: wrap;
         }
-        .about-content p,
-        .project-body p {
-          text-align: left;
-        }
       }
       @media (max-width: 520px) {
+        .nav-links {
+          gap: 10px;
+        }
+        .nav-links a {
+          font-size: 11px;
+        }
         .project-grid {
           grid-template-columns: 1fr;
-        }
-        section {
-          padding: 48px 16px;
-        }
-        #home {
-          padding: 88px 16px 48px;
-        }
-        nav {
-          padding: 0 16px;
-        }
-        .hero-left h1 {
-          margin-bottom: 18px;
-        }
-        .hero-btns,
-        .about-btns {
-          flex-direction: column;
-          width: 100%;
-        }
-        .hero-btns a,
-        .hero-btns button,
-        .about-btns a,
-        .about-btns button {
-          width: 100%;
-        }
-        .about-stats {
-          justify-content: space-between;
-        }
-        .contact-form-wrap {
-          padding: 22px;
-        }
-        .contact-card {
-          padding: 14px;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -1293,16 +1175,7 @@
     <!-- NAV -->
     <nav id="navbar">
       <div class="nav-logo">Rival<span>G0</span>lan</div>
-      <button
-        class="hamburger"
-        id="hamburgerBtn"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -1320,7 +1193,6 @@
         </li>
       </ul>
     </nav>
-    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- HOME / HERO -->
     <section id="home">
@@ -2441,33 +2313,6 @@
         localStorage.setItem("theme", next);
       });
 
-      // ─── Mobile Nav Toggle ───
-      const hamburgerBtn = document.getElementById("hamburgerBtn");
-      const navLinksMenu = document.getElementById("navLinks");
-      const navOverlay = document.getElementById("navOverlay");
-
-      function closeMobileNav() {
-        navLinksMenu.classList.remove("active");
-        hamburgerBtn.classList.remove("active");
-        hamburgerBtn.setAttribute("aria-expanded", "false");
-        navOverlay.classList.remove("active");
-        document.body.classList.remove("nav-open");
-      }
-
-      function toggleMobileNav() {
-        const isActive = navLinksMenu.classList.toggle("active");
-        hamburgerBtn.classList.toggle("active", isActive);
-        hamburgerBtn.setAttribute("aria-expanded", String(isActive));
-        navOverlay.classList.toggle("active", isActive);
-        document.body.classList.toggle("nav-open", isActive);
-      }
-
-      hamburgerBtn.addEventListener("click", toggleMobileNav);
-      navOverlay.addEventListener("click", closeMobileNav);
-      navLinksMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMobileNav);
-      });
-
       // ─── Contact Form ───
       document
         .getElementById("contact-form")
@@ -2520,10 +2365,7 @@
       });
       modal.addEventListener("click", () => modal.classList.remove("active"));
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          modal.classList.remove("active");
-          closeMobileNav();
-        }
+        if (e.key === "Escape") modal.classList.remove("active");
       });
 
       // ─── Scroll Reveal ───
