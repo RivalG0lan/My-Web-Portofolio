@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    -->
+
     <title>Rivaldo Nainggolan — Web Developer & IT Enthusiast</title>
 
     <meta
@@ -58,40 +58,52 @@
       content="https://rivalgolan.me/assets/img/foto-about-me.jpeg"
     />
 
-    <!-- Person Structured Data -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Rivaldo Nainggolan",
-        "alternateName": ["RivalGolan", "Rival Golan"],
-        "url": "https://rivalgolan.me/",
-        "image": "https://rivalgolan.me/assets/img/foto-about-me.jpeg",
-        "jobTitle": "Junior IT Support & Frontend Developer",
-        "description": "Informatics student, Junior IT Support, and Frontend Developer based in Medan, Indonesia.",
-        "knowsAbout": [
-          "Web Development",
-          "Frontend Development",
-          "IT Support",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Flutter",
-          "Dart",
-          "Python",
-          "C",
-          "C#",
-          "Java",
-          "UI/UX Design",
-          "Game Development",
-          "Data Processing"
-        ],
-        "sameAs": [
-          "https://github.com/RivalG0lan",
-          "https://www.linkedin.com/in/rivaldo-nainggolan-tfhfh656/",
-          "https://www.instagram.com/paldo1803",
-          "https://www.youtube.com/@labex183",
-          "https://www.tiktok.com/@paldo1803"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://rivalgolan.me/#person",
+            "name": "Rivaldo Nainggolan",
+            "alternateName": ["RivalGolan", "Rival Golan"],
+            "url": "https://rivalgolan.me/",
+            "image": "https://rivalgolan.me/assets/img/foto-about-me.jpeg",
+            "jobTitle": "Junior IT Support & Frontend Developer",
+            "description": "Informatics student, Junior IT Support, and Frontend Developer based in Medan, Indonesia.",
+            "knowsAbout": [
+              "Web Development",
+              "Frontend Development",
+              "IT Support",
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "Flutter",
+              "Dart",
+              "Python",
+              "C",
+              "C#",
+              "Java",
+              "UI/UX Design",
+              "Game Development",
+              "Data Processing"
+            ],
+            "sameAs": [
+              "https://github.com/RivalG0lan",
+              "https://www.linkedin.com/in/rivaldo-nainggolan-tfhfh656/",
+              "https://www.instagram.com/paldo1803",
+              "https://www.youtube.com/@labex183",
+              "https://www.tiktok.com/@paldo1803"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://rivalgolan.me/#website",
+            "name": "Rivaldo Nainggolan",
+            "alternateName": "RivalGolan",
+            "url": "https://rivalgolan.me/"
+          }
         ]
       }
     </script>
