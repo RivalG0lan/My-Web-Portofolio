@@ -143,11 +143,11 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         <li>
           <button
             class="theme-toggle"
@@ -158,6 +158,31 @@
             <span class="material-symbols-outlined icon-sun">light_mode</span>
           </button>
         </li>
+        <li>
+          <div class="language-selector" id="languageSelector">
+            <button
+              id="langChanger"
+              class="languageoptions"
+              aria-label="Change Language"
+              aria-expanded="false"
+              aria-controls="languageOptions"
+            >
+              EN
+            </button>
+            <div class="language-options" id="languageOptions">
+              <button
+                class="lang-option"
+                id="langOptionLeft"
+                data-lang=""
+              ></button>
+              <button
+                class="lang-option"
+                id="langOptionRight"
+                data-lang=""
+              ></button>
+            </div>
+          </div>
+        </li>
       </ul>
     </nav>
     <div class="nav-overlay" id="navOverlay"></div>
@@ -165,14 +190,14 @@
     <!-- HOME / HERO -->
     <section id="home">
       <div class="hero-left">
-        <div class="hero-eyebrow">
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">
           D3 Informatics · Universitas Sumatera Utara
         </div>
         <h1>
-          Hello, I'm<br />
+          <span data-i18n="hero_greet">Hello, I'm</span><br />
           <span class="stroke-text">Rivaldo</span> Nainggolan
         </h1>
-        <p class="hero-desc">
+        <p class="hero-desc" data-i18n="hero_desc">
           Junior IT Support &amp; Frontend Developer based in Medan. Building
           clean interfaces, data-driven systems, and interactive experiences.
         </p>
@@ -187,10 +212,13 @@
         </div>
         <div class="hero-btns">
           <a href="assets/CV/Rivaldo_CV-Resume.zip" download>
-            <button class="btn-primary">Download CV / Resume</button>
+            <button class="btn-primary" data-i18n="hero_btn_download">
+              Download CV / Resume
+            </button>
           </a>
           <button
             class="btn-secondary"
+            data-i18n="hero_btn_projects"
             onclick="
               document
                 .querySelector('#projects')
@@ -215,53 +243,68 @@
 
     <!-- ABOUT -->
     <section id="about">
-      <div class="section-label">Who I Am</div>
-      <h2 class="section-title" style="color: var(--text-1)">About Me</h2>
+      <div class="section-label" data-i18n="about_label">Who I Am</div>
+      <h2
+        class="section-title"
+        style="color: var(--text-1)"
+        data-i18n="about_title"
+      >
+        About Me
+      </h2>
       <div class="about-grid">
         <div class="about-img-wrap reveal">
           <img src="assets/img/foto-about-me.jpeg" alt="Rivaldo Nainggolan" />
           <div class="about-img-badge">📍 Medan, Indonesia</div>
         </div>
         <div class="about-content reveal">
-          <h2 class="section-title">
+          <h2 class="section-title" data-i18n="about_heading">
             Informatics Student &amp;<br />Junior Developer
           </h2>
-          <p>
+          <p data-i18n="about_p1">
             I'm <strong>Rivaldo Nainggolan</strong>, also known online as
             <strong>RivalGolan</strong>, a D3 Informatics student at Universitas
             Sumatera Utara with hands-on experience in programming, frontend web
             development, Flutter mobile apps, multimedia, game development, and
             data processing.
           </p>
-          <p>
+          <p data-i18n="about_p2">
             Currently available for remote and hybrid work opportunities in IT
             Support, Fullstack Development, UI/UX Design, and Game Development.
           </p>
           <div class="about-stats">
             <div class="stat-item">
               <div class="stat-num">17+</div>
-              <div class="stat-label">Projects</div>
+              <div class="stat-label" data-i18n="about_stat_projects">
+                Projects
+              </div>
             </div>
             <div class="stat-item">
               <div class="stat-num">7</div>
-              <div class="stat-label">Skill Areas</div>
+              <div class="stat-label" data-i18n="about_stat_skills">
+                Skill Areas
+              </div>
             </div>
             <div class="stat-item">
               <div class="stat-num">2024</div>
-              <div class="stat-label">Angkatan</div>
+              <div class="stat-label" data-i18n="about_stat_angkatan">
+                Angkatan
+              </div>
             </div>
           </div>
-          <p>
+          <p data-i18n="about_p3">
             Skilled in VS Code, Microsoft Office Suite, Adobe Premiere Pro,
             After Effects, Photoshop, Figma, Canva, Unity, Jupyter Notebook,
             Google Colab, and more.
           </p>
           <div class="about-btns">
             <a href="assets/CV/Rivaldo_Nainggolan_CV.pdf" download>
-              <button class="btn-primary">Download CV</button>
+              <button class="btn-primary" data-i18n="about_btn_cv">
+                Download CV
+              </button>
             </a>
             <button
               class="btn-secondary"
+              data-i18n="about_btn_contact"
               onclick="
                 document
                   .querySelector('#contact')
@@ -278,9 +321,11 @@
     <!-- SKILLS -->
     <section id="skills">
       <div class="skills-header">
-        <div class="section-label">What I Know</div>
-        <h2 class="section-title">Technical Proficiency</h2>
-        <p class="section-subtitle">
+        <div class="section-label" data-i18n="skills_label">What I Know</div>
+        <h2 class="section-title" data-i18n="skills_title">
+          Technical Proficiency
+        </h2>
+        <p class="section-subtitle" data-i18n="skills_subtitle">
           An overview of my current skills as a Junior IT Support and Web
           Developer. I focus on reliable execution, basic troubleshooting, and
           continuous improvement.
@@ -296,24 +341,30 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Programming</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk1_title">
+                Programming
+              </div>
+              <div class="skill-card-desc" data-i18n="sk1_desc">
                 Basic proficiency in C, C#, Java, and Python.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>IDEs</h4>
-              <p>VSCode, CodeBlocks, NetBeans</p>
+              <h4 data-i18n="sk1_i1_h">IDEs</h4>
+              <p data-i18n="sk1_i1_p">VSCode, CodeBlocks, NetBeans</p>
             </div>
             <div class="skill-item">
-              <h4>Troubleshooting</h4>
-              <p>Debugging, Workflow Understanding, Less Blind Rate Coding</p>
+              <h4 data-i18n="sk1_i2_h">Troubleshooting</h4>
+              <p data-i18n="sk1_i2_p">
+                Debugging, Workflow Understanding, Less Blind Rate Coding
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Coding Efficiency</h4>
-              <p>Avoiding Memory Leaks, Clean Code Practices</p>
+              <h4 data-i18n="sk1_i3_h">Coding Efficiency</h4>
+              <p data-i18n="sk1_i3_p">
+                Avoiding Memory Leaks, Clean Code Practices
+              </p>
             </div>
           </div>
         </div>
@@ -327,24 +378,28 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Frontend Web Development</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk2_title">
+                Frontend Web Development
+              </div>
+              <div class="skill-card-desc" data-i18n="sk2_desc">
                 Building responsive, clean-layout websites.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>Core Technologies</h4>
-              <p>HTML5, CSS3, JavaScript</p>
+              <h4 data-i18n="sk2_i1_h">Core Technologies</h4>
+              <p data-i18n="sk2_i1_p">HTML5, CSS3, JavaScript</p>
             </div>
             <div class="skill-item">
-              <h4>UI Implementation</h4>
-              <p>Converting designs into web layouts from mockups</p>
+              <h4 data-i18n="sk2_i2_h">UI Implementation</h4>
+              <p data-i18n="sk2_i2_p">
+                Converting designs into web layouts from mockups
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Responsive Design</h4>
-              <p>Flexbox, Grid, and media queries</p>
+              <h4 data-i18n="sk2_i3_h">Responsive Design</h4>
+              <p data-i18n="sk2_i3_p">Flexbox, Grid, and media queries</p>
             </div>
           </div>
         </div>
@@ -358,24 +413,30 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Mobile Apps Development</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk3_title">
+                Mobile Apps Development
+              </div>
+              <div class="skill-card-desc" data-i18n="sk3_desc">
                 Flutter-based Android apps with Dart.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>Framework</h4>
-              <p>Flutter (Dart)</p>
+              <h4 data-i18n="sk3_i1_h">Framework</h4>
+              <p data-i18n="sk3_i1_p">Flutter (Dart)</p>
             </div>
             <div class="skill-item">
-              <h4>Structure</h4>
-              <p>Navigation, widgets, simple state management</p>
+              <h4 data-i18n="sk3_i2_h">Structure</h4>
+              <p data-i18n="sk3_i2_p">
+                Navigation, widgets, simple state management
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Workflow</h4>
-              <p>VSCode, emulator testing, basic debugging</p>
+              <h4 data-i18n="sk3_i3_h">Workflow</h4>
+              <p data-i18n="sk3_i3_p">
+                VSCode, emulator testing, basic debugging
+              </p>
             </div>
           </div>
         </div>
@@ -389,26 +450,32 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">
+              <div class="skill-card-title" data-i18n="sk4_title">
                 IT Support &amp; System Assistance
               </div>
-              <div class="skill-card-desc">
+              <div class="skill-card-desc" data-i18n="sk4_desc">
                 Basic maintenance and troubleshooting.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>System Support</h4>
-              <p>Windows installation, configuration, app setup</p>
+              <h4 data-i18n="sk4_i1_h">System Support</h4>
+              <p data-i18n="sk4_i1_p">
+                Windows installation, configuration, app setup
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Troubleshooting</h4>
-              <p>Identifying common hardware and software issues</p>
+              <h4 data-i18n="sk4_i2_h">Troubleshooting</h4>
+              <p data-i18n="sk4_i2_p">
+                Identifying common hardware and software issues
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Hardware</h4>
-              <p>Basic computer components and peripherals</p>
+              <h4 data-i18n="sk4_i3_h">Hardware</h4>
+              <p data-i18n="sk4_i3_p">
+                Basic computer components and peripherals
+              </p>
             </div>
           </div>
         </div>
@@ -422,24 +489,30 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Multimedia &amp; Design</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk5_title">
+                Multimedia &amp; Design
+              </div>
+              <div class="skill-card-desc" data-i18n="sk5_desc">
                 Visual content, editing, and UI mockups.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>Design Tools</h4>
-              <p>Figma, Canva</p>
+              <h4 data-i18n="sk5_i1_h">Design Tools</h4>
+              <p data-i18n="sk5_i1_p">Figma, Canva</p>
             </div>
             <div class="skill-item">
-              <h4>Editing Software</h4>
-              <p>Adobe Premiere Pro, After Effects, Photoshop</p>
+              <h4 data-i18n="sk5_i2_h">Editing Software</h4>
+              <p data-i18n="sk5_i2_p">
+                Adobe Premiere Pro, After Effects, Photoshop
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Use Cases</h4>
-              <p>Video editing, image editing, UI mockups</p>
+              <h4 data-i18n="sk5_i3_h">Use Cases</h4>
+              <p data-i18n="sk5_i3_p">
+                Video editing, image editing, UI mockups
+              </p>
             </div>
           </div>
         </div>
@@ -453,24 +526,30 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Game Development</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk6_title">
+                Game Development
+              </div>
+              <div class="skill-card-desc" data-i18n="sk6_desc">
                 Unity and Roblox Studio projects.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>Engines</h4>
-              <p>Unity, Roblox Studio</p>
+              <h4 data-i18n="sk6_i1_h">Engines</h4>
+              <p data-i18n="sk6_i1_p">Unity, Roblox Studio</p>
             </div>
             <div class="skill-item">
-              <h4>Programming</h4>
-              <p>C# scripting, Lua scripting, gameplay logic</p>
+              <h4 data-i18n="sk6_i2_h">Programming</h4>
+              <p data-i18n="sk6_i2_p">
+                C# scripting, Lua scripting, gameplay logic
+              </p>
             </div>
             <div class="skill-item">
-              <h4>Tasks</h4>
-              <p>UI systems, player interactions, asset integration</p>
+              <h4 data-i18n="sk6_i3_h">Tasks</h4>
+              <p data-i18n="sk6_i3_p">
+                UI systems, player interactions, asset integration
+              </p>
             </div>
           </div>
         </div>
@@ -484,24 +563,28 @@
               />
             </div>
             <div>
-              <div class="skill-card-title">Data Processing</div>
-              <div class="skill-card-desc">
+              <div class="skill-card-title" data-i18n="sk7_title">
+                Data Processing
+              </div>
+              <div class="skill-card-desc" data-i18n="sk7_desc">
                 Cleaning, analysis, and visualization with Python.
               </div>
             </div>
           </div>
           <div class="skill-items">
             <div class="skill-item">
-              <h4>Tools</h4>
-              <p>Google Colab, Jupyter Notebook</p>
+              <h4 data-i18n="sk7_i1_h">Tools</h4>
+              <p data-i18n="sk7_i1_p">Google Colab, Jupyter Notebook</p>
             </div>
             <div class="skill-item">
-              <h4>Libraries</h4>
-              <p>Pandas, NumPy, Matplotlib, Seaborn</p>
+              <h4 data-i18n="sk7_i2_h">Libraries</h4>
+              <p data-i18n="sk7_i2_p">Pandas, NumPy, Matplotlib, Seaborn</p>
             </div>
             <div class="skill-item">
-              <h4>Machine Learning</h4>
-              <p>TF-IDF, Complement Naive Bayes, classification models</p>
+              <h4 data-i18n="sk7_i3_h">Machine Learning</h4>
+              <p data-i18n="sk7_i3_p">
+                TF-IDF, Complement Naive Bayes, classification models
+              </p>
             </div>
           </div>
         </div>
@@ -511,9 +594,9 @@
     <!-- PROJECTS -->
     <section id="projects">
       <div class="projects-header">
-        <div class="section-label">My Work</div>
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">
+        <div class="section-label" data-i18n="projects_label">My Work</div>
+        <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+        <p class="section-subtitle" data-i18n="projects_subtitle">
           A showcase of academic, personal, and team projects across web,
           mobile, AI, game, and data domains.
         </p>
@@ -538,8 +621,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Multimedia GUI - Roblox Studio</h3>
-            <p>
+            <h3 data-i18n="p1_title">Multimedia GUI - Roblox Studio</h3>
+            <p data-i18n="p1_desc">
               Led the UI/UX division for a Roblox map
               <strong>Medan Heritage</strong>. Designed in Figma, built in
               Roblox Studio with Lua scripting for interactive elements.
@@ -549,7 +632,7 @@
               href="https://github.com/RivalG0lan/Project-Multimedia-GUIRobloxStudio"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -576,8 +659,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Database - Hotel Booking</h3>
-            <p>
+            <h3 data-i18n="p2_title">Database - Hotel Booking</h3>
+            <p data-i18n="p2_desc">
               Designed a normalized hotel tourism booking database (UNF → 3NF)
               from Kaggle data, imported via phpMyAdmin on XAMPP.
             </p>
@@ -586,7 +669,7 @@
               href="https://github.com/RivalG0lan/Project-Database-HotelBooking"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -613,8 +696,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Network - Internet Cafe Topology</h3>
-            <p>
+            <h3 data-i18n="p3_title">Network - Internet Cafe Topology</h3>
+            <p data-i18n="p3_desc">
               Designed and simulated an Internet Cafe network in Cisco Packet
               Tracer with LAN cabling, subnets, inter-router routing, and DHCP
               pools.
@@ -624,7 +707,7 @@
               href="https://github.com/RivalG0lan/Project-A2-1stGroup-NetworkComputer-InternetCafeTopology"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -651,8 +734,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Database - SIAKAD Vocation</h3>
-            <p>
+            <h3 data-i18n="p4_title">Database - SIAKAD Vocation</h3>
+            <p data-i18n="p4_desc">
               Web-based Academic Information System for D3 Informatics
               supporting registration, grading, attendance, and parent
               monitoring with role-based access using PHP &amp; MySQL.
@@ -662,7 +745,7 @@
               href="https://github.com/RivalG0lan/Project-Sistem-Basis-Data-Siakad-Tehnik-Informatika-USU"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -689,8 +772,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Web Programming - LokerIn Job Portal</h3>
-            <p>
+            <h3 data-i18n="p5_title">Web Programming - LokerIn Job Portal</h3>
+            <p data-i18n="p5_desc">
               Full-stack PHP/MySQL job portal with dual-role auth, real-time
               messaging, application tracking, skill gap analyzer, and a company
               analytics dashboard on a LAMP stack.
@@ -700,7 +783,7 @@
               href="https://github.com/RivalG0lan/Project-WebProggramming-JobSearch"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -727,8 +810,10 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Mobile - ViAuo Music &amp; Video Player</h3>
-            <p>
+            <h3 data-i18n="p6_title">
+              Mobile - ViAuo Music &amp; Video Player
+            </h3>
+            <p data-i18n="p6_desc">
               Android music and video player built with Flutter featuring
               multi-page navigation, media search, playback history, and modern
               permission handling.
@@ -738,7 +823,7 @@
               href="https://github.com/RivalG0lan/Project-Mobile-Programming-Music-Video_Player"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -765,8 +850,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>My Portfolio Website</h3>
-            <p>
+            <h3 data-i18n="p7_title">My Portfolio Website</h3>
+            <p data-i18n="p7_desc">
               Personal portfolio built with HTML, CSS, and JavaScript showcasing
               profile, skills, and projects as a digital resume for IT and
               development roles.
@@ -776,7 +861,7 @@
               href="https://github.com/RivalG0lan/My-Web-Portofolio"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -803,8 +888,8 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Multimedia Midterm Exam Project</h3>
-            <p>
+            <h3 data-i18n="p8_title">Multimedia Midterm Exam Project</h3>
+            <p data-i18n="p8_desc">
               Mobile application UI/UX design for academic services, focusing on
               accessibility and usability for students through structured,
               user-friendly interface design.
@@ -814,7 +899,7 @@
               href="https://github.com/RivalG0lan/Multimedia-Midterm-Exam"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -841,8 +926,10 @@
             ></iframe>
           </div>
           <div class="project-body">
-            <h3>Multimedia Group-5 - Healthy Drinks App</h3>
-            <p>
+            <h3 data-i18n="p9_title">
+              Multimedia Group-5 - Healthy Drinks App
+            </h3>
+            <p data-i18n="p9_desc">
               Team-based UI/UX design in Figma for a healthy drink ordering
               mobile app, built on user personas for visual consistency and
               audience alignment.
@@ -852,7 +939,7 @@
               href="https://github.com/RivalG0lan/Multimedia-Group5-Project"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -868,8 +955,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>AI Chess Game - Minimax Algorithm</h3>
-            <p>
+            <h3 data-i18n="p10_title">AI Chess Game - Minimax Algorithm</h3>
+            <p data-i18n="p10_desc">
               Python chess game using Minimax with Alpha-Beta Pruning.
               Interactive Pygame interface for playing against the AI.
             </p>
@@ -878,7 +965,7 @@
               href="https://github.com/RivalG0lan/ai-game-catur-minimax"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -894,8 +981,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>Simple Face Recognition - Python</h3>
-            <p>
+            <h3 data-i18n="p11_title">Simple Face Recognition - Python</h3>
+            <p data-i18n="p11_desc">
               Real-time face recognition with Python, OpenCV, and
               face_recognition - detects and identifies faces from a predefined
               dataset.
@@ -905,7 +992,7 @@
               href="https://github.com/RivalG0lan/simple-face-recognition-python-ai"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -921,8 +1008,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>Interpolation Newton-Gregory Program</h3>
-            <p>
+            <h3 data-i18n="p12_title">Interpolation Newton-Gregory Program</h3>
+            <p data-i18n="p12_desc">
               Python numerical computing app implementing Linear Interpolation,
               Newton Divided Differences, Forward and Backward methods with CSV
               support and data visualization.
@@ -932,7 +1019,7 @@
               href="https://github.com/RivalG0lan/Numerical-Computer---Interpolation-Newton-Gregory"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -945,8 +1032,10 @@
             <img src="assets/img/SPK SIM.png" alt="Decision Support System" />
           </div>
           <div class="project-body">
-            <h3>Decision Support System - Bakery Sales</h3>
-            <p>
+            <h3 data-i18n="p13_title">
+              Decision Support System - Bakery Sales
+            </h3>
+            <p data-i18n="p13_desc">
               Python analytics system on 2006–2019 bakery data using SAW and
               TOPSIS for promotional budget and product prioritization
               recommendations.
@@ -956,7 +1045,7 @@
               href="https://github.com/RivalG0lan/Project-management-information-systems-Group1"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -972,8 +1061,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>Sentiment Analysis - Machine Learning</h3>
-            <p>
+            <h3 data-i18n="p14_title">Sentiment Analysis - Machine Learning</h3>
+            <p data-i18n="p14_desc">
               Flask web app classifying e-commerce reviews using TF-IDF and
               Complement Naive Bayes, with interactive visualizations and
               confidence scores.
@@ -983,7 +1072,7 @@
               href="https://github.com/RivalG0lan/Group-4-Ai-Practice_Project-Sentimen-Analysis"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -996,8 +1085,8 @@
             <img src="assets/img/1st-Unity-Game.png" alt="Unity Game" />
           </div>
           <div class="project-body">
-            <h3>Collect The Stars - Unity</h3>
-            <p>
+            <h3 data-i18n="p15_title">Collect The Stars - Unity</h3>
+            <p data-i18n="p15_desc">
               Simple 3D Unity game where players collect stars. Features C#
               scripting for UI, restart functionality, sound effects, and
               gameplay interactions.
@@ -1007,7 +1096,7 @@
               href="https://play.unity.com/en/games/cbef347a-416f-4d78-b215-8aec37bad7c4/gamemengumpulkanitem"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -1023,8 +1112,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>Interactive Map - Indonesian Tribes</h3>
-            <p>
+            <h3 data-i18n="p16_title">Interactive Map - Indonesian Tribes</h3>
+            <p data-i18n="p16_desc">
               Web map exploring ethnic diversity across all 38 provinces using
               Leaflet.js, with tribe info, cultural heritage, and regional
               statistics.
@@ -1034,7 +1123,7 @@
               href="https://github.com/RivalG0lan/UNIKA-PGSD-Sari-Natalia-Suku_Indonesia"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -1049,8 +1138,10 @@
             />
           </div>
           <div class="project-body">
-            <h3>Interactive Map - Indonesia's Mountains</h3>
-            <p>
+            <h3 data-i18n="p17_title">
+              Interactive Map - Indonesia's Mountains
+            </h3>
+            <p data-i18n="p17_desc">
               Leaflet.js map of Indonesian mountains with search, geographic
               info, dark mode, and responsive design for educational
               exploration.
@@ -1060,7 +1151,7 @@
               href="https://github.com/RivalG0lan/peta-interaktif-gunung-nusantara"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -1075,8 +1166,8 @@
             />
           </div>
           <div class="project-body">
-            <h3>Education Game - Roblox Kidsnesia</h3>
-            <p>
+            <h3 data-i18n="p18_title">Education Game - Roblox Kidsnesia</h3>
+            <p data-i18n="p18_desc">
               An educational Roblox game that introduces Indonesian culture
               through interactive gameplay, cultural landmarks, quizzes, and
               exploration, creating a fun learning experience for players of all
@@ -1087,7 +1178,7 @@
               href="https://www.roblox.com/games/71361016335012/Kidsnesia-Petualangan-Budaya-Nusantara#!/about"
               target="_blank"
               rel="noopener"
-              >See More
+              ><span data-i18n="see_more">See More</span>
               <span class="material-symbols-outlined" style="font-size: 16px"
                 >arrow_forward</span
               ></a
@@ -1099,9 +1190,11 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="section-label">Get In Touch</div>
-      <h2 class="section-title">Let's Work Together</h2>
-      <p class="section-subtitle">
+      <div class="section-label" data-i18n="contact_label">Get In Touch</div>
+      <h2 class="section-title" data-i18n="contact_title">
+        Let's Work Together
+      </h2>
+      <p class="section-subtitle" data-i18n="contact_subtitle">
         Open to opportunities in IT Support, Programming, Frontend Web
         Development, UI/UX Design, Flutter, and multimedia. Say hello - I'll
         respond as soon as possible.
@@ -1114,7 +1207,7 @@
                 <span class="material-symbols-outlined">mail</span>
               </div>
               <div class="contact-card-text">
-                <p>Email</p>
+                <p data-i18n="contact_email_label">Email</p>
                 <p>nainggolanripaldo07@gmail.com</p>
               </div>
               <div class="contact-card-link">
@@ -1133,7 +1226,7 @@
                 <span class="material-symbols-outlined">work</span>
               </div>
               <div class="contact-card-text">
-                <p>LinkedIn</p>
+                <p data-i18n="contact_linkedin_label">LinkedIn</p>
                 <p>Rivaldo Nainggolan</p>
               </div>
               <div class="contact-card-link">
@@ -1152,7 +1245,7 @@
                 <span class="material-symbols-outlined">code</span>
               </div>
               <div class="contact-card-text">
-                <p>GitHub</p>
+                <p data-i18n="contact_github_label">GitHub</p>
                 <p>RivalG0lan</p>
               </div>
               <div class="contact-card-link">
@@ -1171,7 +1264,7 @@
                 <span class="material-symbols-outlined">photo_camera</span>
               </div>
               <div class="contact-card-text">
-                <p>Instagram</p>
+                <p data-i18n="contact_ig_label">Instagram</p>
                 <p>@paldo1803</p>
               </div>
               <div class="contact-card-link">
@@ -1190,7 +1283,7 @@
                 <span class="material-symbols-outlined">smart_display</span>
               </div>
               <div class="contact-card-text">
-                <p>YouTube</p>
+                <p data-i18n="contact_yt_label">YouTube</p>
                 <p>@labex183</p>
               </div>
               <div class="contact-card-link">
@@ -1209,7 +1302,7 @@
                 <i class="fa-brands fa-tiktok"></i>
               </div>
               <div class="contact-card-text">
-                <p>TikTok</p>
+                <p data-i18n="contact_tiktok_label">TikTok</p>
                 <p>@paldo1803</p>
               </div>
               <div class="contact-card-link">
@@ -1223,55 +1316,66 @@
               <span class="material-symbols-outlined">location_on</span>
             </div>
             <div class="contact-card-text">
-              <p>Location</p>
-              <p>Medan, North Sumatra, Indonesia</p>
+              <p data-i18n="contact_location_label">Location</p>
+              <p data-i18n="contact_location_value">
+                Medan, North Sumatra, Indonesia
+              </p>
             </div>
           </div>
         </div>
 
         <div class="contact-form-wrap reveal">
-          <h3>Send a Message</h3>
+          <h3 data-i18n="contact_form_title">Send a Message</h3>
           <form id="contact-form" novalidate>
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name" data-i18n="form_name_label">Name</label>
               <input
                 type="text"
                 id="name"
                 name="name"
+                data-i18n-placeholder="form_name_ph"
                 placeholder="Your name"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" data-i18n="form_email_label">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                data-i18n-placeholder="form_email_ph"
                 placeholder="your@email.com"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="subject">Subject</label>
+              <label for="subject" data-i18n="form_subject_label"
+                >Subject</label
+              >
               <input
                 type="text"
                 id="subject"
                 name="subject"
+                data-i18n-placeholder="form_subject_ph"
                 placeholder="What's this about?"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
+              <label for="message" data-i18n="form_message_label"
+                >Message</label
+              >
               <textarea
                 id="message"
                 name="message"
+                data-i18n-placeholder="form_message_ph"
                 placeholder="Tell me more..."
-                required
               ></textarea>
             </div>
-            <button type="submit" class="form-submit">Send Message</button>
+            <button type="submit" class="form-submit" data-i18n="form_submit">
+              Send Message
+            </button>
           </form>
         </div>
       </div>

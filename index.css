@@ -245,6 +245,7 @@ nav {
     width: 100%;
 }
 
+
 /* ─── THEME TOGGLE BUTTON ─── */
 .theme-toggle {
     width: 38px;
@@ -290,6 +291,107 @@ nav {
 
 [data-theme="dark"] .icon-moon {
     display: none;
+}
+
+/* ─── Language Selector ─── */
+
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ─── Main Button ─── */
+
+.languageoptions {
+    line-height: 1;
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    border: 1.5px solid var(--nav-border);
+
+    background: transparent;
+    color: var(--nav-link);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 8px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.languageoptions:hover {
+    background: rgba(19, 127, 236, 0.1);
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: scale(1.08);
+}
+
+
+/* ─── Language Options ─── */
+
+.language-options {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: none;
+    align-items: center;
+    gap: 12px;
+
+    pointer-events: none;
+}
+
+.language-options.active {
+    display: flex;
+}
+
+
+/* ─── Individual Option ─── */
+
+.lang-option {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    border: 1px solid var(--nav-border);
+
+    background: var(--nav-bg);
+    color: var(--nav-link);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* Slot kosong (tidak ada bahasa ke arah itu) disembunyikan lewat JS
+   dengan inline style, jadi tidak perlu aturan display di sini. */
+
+/* Hover pilihan */
+.lang-option.active {
+    border-color: var(--blue);
+    color: var(--blue);
+
+    transform: scale(1.1);
 }
 
 /* ─── HAMBURGER (mobile nav trigger) ─── */
@@ -1213,6 +1315,40 @@ footer {
         margin: 16px 0 0;
     }
 
+    .language-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding-top: 12px;
+    }
+
+    .languageoptions {
+        width: 100%;
+        height: 44px;
+        margin-left: 0;
+        border-radius: 10px;
+        justify-content: flex-start;
+        padding: 0 14px;
+        font-size: 15px;
+    }
+
+    .language-options {
+        position: static;
+        transform: none;
+        width: 100%;
+        gap: 8px;
+        pointer-events: auto;
+    }
+
+    .lang-option {
+        flex: 1;
+        width: auto;
+        height: 44px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
     #home {
         flex-direction: column;
         padding: 100px 20px 60px;
@@ -1325,5 +1461,28 @@ footer {
 
     html {
         scroll-behavior: auto;
+    }
+}
+
+/* ═══════════════════════════════════════════
+   LANGUAGE TYPING ANIMATION
+═══════════════════════════════════════════ */
+.type-cursor {
+    display: inline-block;
+    margin-left: 1px;
+    color: var(--blue);
+    animation: blinkCursor 0.85s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
     }
 }
