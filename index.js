@@ -163,6 +163,9 @@ const translations = {
         p18_title: "Education Game - Roblox Kidsnesia",
         p18_desc: "An educational Roblox game that introduces Indonesian culture through interactive gameplay, cultural landmarks, quizzes, and exploration, creating a fun learning experience for players of all ages.",
 
+        moreproject_label1: "More Projects >>",
+        moreproject_label2: "<< Show Less",
+
         contact_label: "Get In Touch",
         contact_title: "Let's Work Together",
         contact_subtitle: "Open to opportunities in IT Support, Programming, Frontend Web Development, UI/UX Design, Flutter, and multimedia. Say hello - I'll respond as soon as possible.",
@@ -298,6 +301,9 @@ const translations = {
         p18_title: "Game Edukasi - Roblox Kidsnesia",
         p18_desc: "Game edukasi di Roblox yang ngenalin budaya Indonesia lewat gameplay interaktif, landmark budaya, kuis, dan eksplorasi, bikin belajar jadi seru buat semua umur.",
 
+        moreproject_label1: "Proyek lain >>",
+        moreproject_label2: "<< Pendek",
+
         contact_label: "Hubungi Saya",
         contact_title: "Yuk, Kita Kolaborasi",
         contact_subtitle: "Terbuka buat peluang di IT Support, Programming, Frontend Web Development, UI/UX Design, Flutter, dan multimedia. Sapa aja dulu. saya bakal balas secepatnya.",
@@ -432,6 +438,9 @@ const translations = {
         p17_desc: "検索機能、地理情報、ダークモード、レスポンシブデザインを備えたインドネシアの山々のLeaflet.jsマップ。教育目的の探索に。",
         p18_title: "教育ゲーム - Roblox Kidsnesia",
         p18_desc: "インタラクティブなゲームプレイ、文化的名所、クイズ、探索を通してインドネシア文化を紹介する教育用Robloxゲーム。全年齢が楽しめる学習体験。",
+
+        moreproject_label1: "もっと見る >>",
+        moreproject_label2: "閉じる",
 
         contact_label: "お問い合わせ",
         contact_title: "一緒に働きましょう",
@@ -867,28 +876,29 @@ const moreProjectBtn = document.querySelector(".more-project-btn");
 const extraProjectCards = document.querySelectorAll(".project-card.project-hidden");
 let projectsExpanded = false;
 
+function updateMoreProjectBtnText() {
+    const key = projectsExpanded ? "moreproject_label2" : "moreproject_label1";
+    moreProjectBtn.setAttribute("data-i18n", key);
+    moreProjectBtn.textContent = t(key);
+}
+
 if (moreProjectBtn) {
     moreProjectBtn.addEventListener("click", () => {
         projectsExpanded = !projectsExpanded;
 
         extraProjectCards.forEach((card) => {
             if (projectsExpanded) {
-                // tampilkan lagi
                 card.classList.remove("project-hidden");
                 card.classList.remove("visible");
                 observer.observe(card);
             } else {
-                // sembunyikan lagi
                 card.classList.add("project-hidden");
                 card.classList.remove("visible");
             }
         });
 
-        moreProjectBtn.textContent = projectsExpanded
-            ? "<< Show Less"
-            : "More Projects >>";
+        updateMoreProjectBtnText();
 
-        // opsional: scroll balik ke atas section projects biar gak "kehilangan" posisi
         if (!projectsExpanded) {
             document.querySelector("#projects").scrollIntoView({ behavior: "smooth" });
         }
