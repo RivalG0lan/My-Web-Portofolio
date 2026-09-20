@@ -811,6 +811,39 @@ document
     .querySelectorAll(".reveal")
     .forEach((el) => observer.observe(el));
 
+// ─── More Projects Toggle ───
+const moreProjectBtn = document.querySelector(".more-project-btn");
+const extraProjectCards = document.querySelectorAll(".project-card.project-hidden");
+let projectsExpanded = false;
+
+if (moreProjectBtn) {
+    moreProjectBtn.addEventListener("click", () => {
+        projectsExpanded = !projectsExpanded;
+
+        extraProjectCards.forEach((card) => {
+            if (projectsExpanded) {
+                // tampilkan lagi
+                card.classList.remove("project-hidden");
+                card.classList.remove("visible");
+                observer.observe(card);
+            } else {
+                // sembunyikan lagi
+                card.classList.add("project-hidden");
+                card.classList.remove("visible");
+            }
+        });
+
+        moreProjectBtn.textContent = projectsExpanded
+            ? "<< Show Less"
+            : "More Projects >>";
+
+        // opsional: scroll balik ke atas section projects biar gak "kehilangan" posisi
+        if (!projectsExpanded) {
+            document.querySelector("#projects").scrollIntoView({ behavior: "smooth" });
+        }
+    });
+}
+
 // ─── Active Nav Link ───
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
