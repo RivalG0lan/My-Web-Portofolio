@@ -871,6 +871,24 @@ document
     .querySelectorAll(".reveal")
     .forEach((el) => observer.observe(el));
 
+const youtubePreviews = document.querySelectorAll(".youtube-preview");
+
+youtubePreviews.forEach((preview) => {
+    preview.addEventListener("click", () => {
+        const videoId = preview.dataset.videoId;
+
+        preview.innerHTML = `
+            <iframe
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+        `;
+    });
+});
+
 // ─── More Projects Toggle ───
 const moreProjectBtn = document.querySelector(".more-project-btn");
 const extraProjectCards = document.querySelectorAll(".project-card.project-hidden");
