@@ -3,6 +3,56 @@
     emailjs.init("ljvafDc51_oOyjf91");
 })();
 
+// ─── Page Loader (preload hero video) ───
+(function () {
+    const pageLoader = document.getElementById("pageLoader");
+    const heroVideo = document.getElementById("heroVideo");
+    const MIN_LOADER_TIME = 1200; // ms, biar animasi loader kelihatan minimal segini
+    const MAX_LOADER_TIME = 6000; // ms, fallback kalau video lemot/gagal load
+
+    const startTime = Date.now();
+    let videoReady = false;
+    let hidden = false;
+
+    function hideLoader() {
+        if (hidden) return;
+        hidden = true;
+        pageLoader.classList.add("loader-hidden");
+        if (heroVideo) {
+            heroVideo.play().catch(() => { });
+        }
+        setTimeout(() => {
+            pageLoader.remove();
+        }, 600);
+    }
+
+    function tryHide() {
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(0, MIN_LOADER_TIME - elapsed);
+        setTimeout(hideLoader, remaining);
+    }
+
+    if (heroVideo) {
+        // Video sudah cukup ter-buffer untuk diputar tanpa lag
+        heroVideo.addEventListener("canplaythrough", () => {
+            videoReady = true;
+            tryHide();
+        }, { once: true });
+
+        // Kalau video gagal load, jangan biarkan loader nyangkut selamanya
+        heroVideo.addEventListener("error", () => {
+            tryHide();
+        }, { once: true });
+
+        heroVideo.load();
+    } else {
+        tryHide();
+    }
+
+    // Fallback keras: apapun yang terjadi, loader wajib hilang max 6 detik
+    setTimeout(hideLoader, MAX_LOADER_TIME);
+})();
+
 // ═══════════════════════════════════════════
 // TRANSLATIONS (gaul-semiformal style)
 // ═══════════════════════════════════════════
@@ -697,8 +747,8 @@ const html = document.documentElement;
 const toggleBtn = document.getElementById("themeToggle");
 
 // Load saved preference (default: light)
-const saved = localStorage.getItem("theme") || "light";
-html.setAttribute("data-theme", saved);
+// const saved = localStorage.getItem("theme") || "light"; ini udah ada di head awal html, buat ngatasin defer. sehingga nyimpan preferensi lebih prioritas. baru defer berjalan
+// html.setAttribute("data-theme", saved);
 
 toggleBtn.addEventListener("click", () => {
     const current = html.getAttribute("data-theme");
