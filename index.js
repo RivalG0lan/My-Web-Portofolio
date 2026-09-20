@@ -559,8 +559,8 @@ const langOptionRight = document.getElementById("langOptionRight");
 // from JA you can only go back left to EN.
 const langNeighbors = {
     EN: { left: "ID", right: "JA" },
-    ID: { left: null, right: "EN" },
-    JA: { left: "EN", right: null },
+    ID: { left: "JA", right: "EN" },
+    JA: { left: "EN", right: "ID" },
 };
 
 let currentLanguage = "EN";
