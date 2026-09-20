@@ -440,7 +440,7 @@ const translations = {
         p18_desc: "インタラクティブなゲームプレイ、文化的名所、クイズ、探索を通してインドネシア文化を紹介する教育用Robloxゲーム。全年齢が楽しめる学習体験。",
 
         moreproject_label1: "もっと見る >>",
-        moreproject_label2: "閉じる",
+        moreproject_label2: "<< 閉じる",
 
         contact_label: "お問い合わせ",
         contact_title: "一緒に働きましょう",
