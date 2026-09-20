@@ -606,6 +606,7 @@ function selectLanguage(language) {
     langChangBtn.textContent = getLanguageLabel(currentLanguage);
     languageOptions.classList.remove("active");
     langChangBtn.setAttribute("aria-expanded", "false");
+    localStorage.setItem("language", currentLanguage); // ← tambahan
     applyLanguage(currentLanguage, true);
 }
 
@@ -886,4 +887,11 @@ window.addEventListener("scroll", () => {
 
 // ─── Init ───
 captureOriginals();
+
+// Load saved language preference (default: EN)
+const savedLanguage = localStorage.getItem("language") || "EN";
+currentLanguage = savedLanguage;
+langChangBtn.textContent = getLanguageLabel(currentLanguage);
+applyLanguage(currentLanguage, false); // false = tanpa animasi ketik, biar langsung tampil pas load
+
 refreshCopyright();
